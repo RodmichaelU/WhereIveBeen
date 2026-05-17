@@ -1,0 +1,25 @@
+[
+  {
+    "id": "calgary",
+    "name": "Calgary",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [51.04999, -114.0666],
+    "photos": ["/images/northAmerica/calgary.jpg"]
+  },
+  {
+    "id": "new-york",
+    "name": "New York City",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [40.7128, -74.006],
+    "visits": [
+      {
+        "visitDate": "October 2021",
+        "description": "Five boroughs, endless energy. Times Square, Central Park, and the best pizza outside of Naples.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  }
+]

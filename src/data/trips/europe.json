@@ -1,0 +1,273 @@
+[
+  {
+    "id": "paris",
+    "name": "Paris",
+    "country": "France",
+    "continent": "Europe",
+    "coordinates": [48.8566, 2.3522],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "zurich",
+    "name": "Zurich",
+    "country": "Switzerland",
+    "continent": "Europe",
+    "coordinates": [47.3769, 8.5417],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "munich",
+    "name": "Munich",
+    "country": "Germany",
+    "continent": "Europe",
+    "coordinates": [48.1374, 11.5755],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "milan",
+    "name": "Milan",
+    "country": "Italy",
+    "continent": "Europe",
+    "coordinates": [45.4643, 9.1895],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "rome",
+    "name": "Rome",
+    "country": "Italy",
+    "continent": "Europe",
+    "coordinates": [41.9028, 12.4964],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "vatican",
+    "name": "Vatican-City",
+    "country": "Vatican",
+    "continent": "Europe",
+    "coordinates": [41.9029, 12.4534],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "olympia",
+    "name": "Olympia",
+    "country": "Greece",
+    "continent": "Europe",
+    "coordinates": [37.6385, 21.6299],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "athens",
+    "name": "Athens",
+    "country": "Greece",
+    "continent": "Europe",
+    "coordinates": [37.9838, 23.7275],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "mykonos",
+    "name": "Mykonos",
+    "country": "Greece",
+    "continent": "Europe",
+    "coordinates": [37.4415, 25.3667],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "izmir",
+    "name": "Izmir",
+    "country": "Turkey",
+    "continent": "Europe",
+    "coordinates": [38.4237, 27.1428],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "santorini",
+    "name": "Santorini",
+    "country": "Greece",
+    "continent": "Europe",
+    "coordinates": [36.3932, 25.4615],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "valletta",
+    "name": "Valletta",
+    "country": "Malta",
+    "continent": "Europe",
+    "coordinates": [35.8983, 14.5125],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "barcelona",
+    "name": "Barcelona",
+    "country": "Spain",
+    "continent": "Europe",
+    "coordinates": [41.3874, 2.1686],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "amsterdam",
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "continent": "Europe",
+    "coordinates": [52.3676, 4.9041],
+    "visits": [
+      {
+        "visitDate": "February 2026",
+        "description": "School trip",
+        "youtubeUrls": ["https://youtu.be/eA0o0IqeTGg?si=loO6VbVa21p1gMZa"],
+        "photos": ["/images/Europe/amsterdam.jpg",
+      "/images/Europe/vangoh.jpg"]
+      }
+    ]
+  },
+  {
+    "id": "delft",
+    "name": "Delft",
+    "country": "Netherlands",
+    "continent": "Europe",
+    "coordinates": [52.0116, 4.3571],
+    "visits": [
+      {
+        "visitDate": "February 2026",
+        "description": "School trip",
+        "youtubeUrls": ["https://youtu.be/hQQ8vsU6osU?si=CH3_iQWYctrjk8EW"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "antwerp",
+    "name": "Antwerp",
+    "country": "Belgium",
+    "continent": "Europe",
+    "coordinates": [51.2199, 4.415],
+    "visits": [
+      {
+        "visitDate": "February 2026",
+        "description": "School trip",
+        "youtubeUrls": ["https://youtu.be/pjikRlgzq4w?si=9YHNr1F6HlRh_9LJ"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "reykjavik",
+    "name": "Reykjavik",
+    "country": "Iceland",
+    "continent": "Europe",
+    "coordinates": [64.1355, -21.8954],
+    "visits": [
+      {
+        "visitDate": "May 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [""],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "vikoyri",
+    "name": "Vikoyri",
+    "country": "Iceland",
+    "continent": "Europe",
+    "coordinates": [63.4186, -19.0060],
+    "visits": [
+      {
+        "visitDate": "May 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [""],
+        "photos": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "tokyo",
+    "name": "Tokyo",
+    "country": "Japan",
+    "continent": "Asia",
+    "coordinates": [35.6762, 139.6503],
+    "visits": [
+      {
+        "visitDate": "March 2023",
+        "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "osaka",
+    "name": "Osaka",
+    "country": "Japan",
+    "continent": "Asia",
+    "coordinates": [34.6937, 135.5022],
+    "visits": [
+      {
+        "visitDate": "August 2025",
+        "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "kyoto",
+    "name": "Kyoto",
+    "country": "Japan",
+    "continent": "Asia",
+    "coordinates": [35.0116, 135.7681],
+    "visits": [
+      {
+        "visitDate": "August 2025",
+        "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "manila",
+    "name": "Manila",
+    "country": "Philippines",
+    "continent": "Asia",
+    "coordinates": [14.5995, 120.9841],
+    "visits": [
+      {
+        "visitDate": "August 2025",
+        "description": "Home",
+        "youtubeUrls": ["https://youtu.be/zmqyDjDQz1k"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "seoul",
+    "name": "Seoul",
+    "country": "South Korea",
+    "continent": "Asia",
+    "coordinates": [37.5503, 126.9971],
+    "visits": [
+      {
+        "visitDate": "June 2026",
+        "description": "Coming soon",
+        "youtubeUrls": [""],
+        "photos": []
+      }
+    ]
+  }
+]
