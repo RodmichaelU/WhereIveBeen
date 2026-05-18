@@ -18,14 +18,15 @@ export default function App() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              Where I've Been
+              Where has Rod been?
             </h1>
             <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
               {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
             </p>
           </div>
-          <div className="text-slate-400 text-sm font-medium hidden sm:block">
-            Click a pin to explore
+          <div className="text-slate-400 text-sm font-medium">
+            <span className="sm:hidden">Tap a pin to explore</span>
+            <span className="hidden sm:inline">Click a pin to explore</span>
           </div>
         </div>
       </header>
