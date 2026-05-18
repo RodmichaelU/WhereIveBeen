@@ -30,7 +30,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="h-[55vh] md:h-[65vh]">
+      <div className="h-[60vh] md:h-[65vh]">
         <WorldMap
           trips={trips}
           selectedTrip={selectedTrip}

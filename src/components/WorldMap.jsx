@@ -1,5 +1,30 @@
-import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
+import { useEffect } from 'react'
+import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
 import L from 'leaflet'
+
+function MobileView() {
+  const map = useMap()
+  useEffect(() => {
+    map.fitBounds([[-55, -170], [72, 150]], { animate: false, padding: [10, 10] })
+  }, [map])
+  return null
+}
+
+function MapController({ locked }) {
+  const map = useMap()
+  useEffect(() => {
+    if (locked) {
+      map.scrollWheelZoom.disable()
+      map.touchZoom.disable()
+      map.doubleClickZoom.disable()
+    } else {
+      map.scrollWheelZoom.enable()
+      map.touchZoom.enable()
+      map.doubleClickZoom.enable()
+    }
+  }, [locked, map])
+  return null
+}
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -41,20 +66,24 @@ function createTripIcon(isActive, visitCount) {
 }
 
 export default function WorldMap({ trips, selectedTrip, onTripSelect }) {
+  const isMobile = window.innerWidth < 768
+
   return (
     <MapContainer
       center={[20, 0]}
-      zoom={2}
-      minZoom={2}
+      zoom={isMobile ? 1 : 2}
+      minZoom={1}
       maxZoom={12}
       scrollWheelZoom={true}
+      attributionControl={false}
       style={{ height: '100%', width: '100%' }}
       maxBounds={[[-90, -180], [90, 180]]}
       maxBoundsViscosity={0.8}
     >
+      {isMobile && <MobileView />}
+      <MapController locked={!!selectedTrip} />
       <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
-        attribution='Tiles &copy; <a href="https://www.esri.com/">Esri</a>'
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
         maxZoom={19}
       />
 

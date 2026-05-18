@@ -4,7 +4,7 @@
 
 /* Leaflet overrides */
 .leaflet-container {
-  background: #aac8d6;
+  background: #b3d1e8;
   font-family: inherit;
 }
 
@@ -28,14 +28,10 @@
   color: #f1f5f9 !important;
 }
 
-.leaflet-control-attribution {
-  background: rgba(255, 255, 255, 0.75) !important;
-  color: #94a3b8 !important;
-  font-size: 10px !important;
-}
-
-.leaflet-control-attribution a {
-  color: #64748b !important;
+/* Hide Leaflet controls while a modal is open */
+body.modal-open .leaflet-top,
+body.modal-open .leaflet-bottom {
+  display: none !important;
 }
 
 .leaflet-tooltip {
