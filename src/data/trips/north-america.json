@@ -5,7 +5,8 @@
     "country": "Canada",
     "continent": "North America",
     "coordinates": [51.04999, -114.0666],
-    "photos": ["/images/northAmerica/calgary.jpg"]
+    "photos": ["/images/northAmerica/calgary.jpg"],
+    "youtubeUrls": ["https://youtu.be/qXt2ELp2-MU"]
   },
   {
     "id": "new-york",
@@ -46,7 +47,7 @@
     "visits": [
       {
         "visitDate": "",
-        "description": "Mountains meeting the ocean. Rainforest trails, Stanley Park seawall, and a laid-back Pacific Northwest vibe.",
+        "description": "BC's genteel capital on Vancouver Island. Inner Harbour charm, historic gardens, and a touch of British heritage.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -248,7 +249,13 @@
       {
         "visitDate": "",
         "description": "The desert that never sleeps. Neon lights, the Strip, and entertainment around every corner.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/bS3voBX2dEw"],
+        "photos": []
+      },
+      {
+        "visitDate": "",
+        "description": "The desert that never sleeps. Neon lights, the Strip, and entertainment around every corner.",
+        "youtubeUrls": ["https://youtu.be/YrFn0XCzi-A"],
         "photos": []
       }
     ]
@@ -323,7 +330,7 @@
       {
         "visitDate": "",
         "description": "Space City sprawl. World-class museums, a booming food scene, and Southern energy at scale.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/aWJJCRIgWLY","https://youtu.be/bTFbzbVgcXI","https://youtu.be/9m-0jYfyboA"],
         "photos": []
       }
     ]
@@ -397,7 +404,7 @@
     "visits": [
       {
         "visitDate": "",
-        "description": "Coning Soon",
+        "description": "Coming Soon",
         "youtubeUrls": [],
         "photos": []
       }
@@ -428,7 +435,22 @@
       {
         "visitDate": "",
         "description": "Caribbean island off the Yucatán. World-class reef diving and clear, calm waters.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/PYVvc4aV7-g"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "costa-maya",
+    "name": "Costa Maya",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [18.7333, -87.6833],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Mexico's quiet Caribbean coast. A laid-back cruise port with reefs, ruins, and uncrowded beaches nearby.",
+        "youtubeUrls": ["https://youtu.be/_M1ry0-8LHU"],
         "photos": []
       }
     ]
@@ -518,7 +540,7 @@
       {
         "visitDate": "",
         "description": "Honduran island in the Caribbean. Coral reefs, dive sites, and a relaxed Bay Islands pace.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/qXt2ELp2-MU"],
         "photos": []
       }
     ]
