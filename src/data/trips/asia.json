@@ -7,9 +7,9 @@
     "coordinates": [35.6762, 139.6503],
     "visits": [
       {
-        "visitDate": "March 2023",
+        "visitDate": "August 2025",
         "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
-        "youtubeUrls": ["https://youtu.be/I7lQmPquDMY","https://youtu.be/sncNgWhU1A4"],
+        "youtubeUrls": ["https://youtu.be/TUr1VGEUENg","https://youtu.be/DVaHR5uP0oY","https://youtu.be/FXbWZtpnLj0","https://youtu.be/tElqtkI45Ss","https://youtu.be/VmiWp4uBzHE","https://youtu.be/TcB5NARZTrg","https://youtu.be/sncNgWhU1A4","https://youtu.be/I7lQmPquDMY"],
         "photos": []
       }
     ]
@@ -24,7 +24,7 @@
       {
         "visitDate": "August 2025",
         "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/K96WIaGOy88","https://youtu.be/O_Jj3wHZjq0"],
         "photos": []
       }
     ]
@@ -39,7 +39,7 @@
       {
         "visitDate": "August 2025",
         "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/JRUH53J4naQ"],
         "photos": []
       }
     ]
@@ -54,7 +54,7 @@
       {
         "visitDate": "August 2025",
         "description": "Home",
-        "youtubeUrls": ["https://youtu.be/eEiJXs5M53A","https://youtu.be/RJZXjijWhoE","https://youtu.be/zmqyDjDQz1k","https://youtu.be/diQ_SR1pQSI"],
+        "youtubeUrls": ["https://youtu.be/RJZXjijWhoE","https://youtu.be/zmqyDjDQz1k","https://youtu.be/diQ_SR1pQSI"],
         "photos": []
       }
     ]

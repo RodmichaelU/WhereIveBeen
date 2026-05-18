@@ -90,9 +90,15 @@
     "coordinates": [43.6532, -79.3832],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "March 2026",
         "description": "Canada's biggest city. The CN Tower skyline, diverse neighborhoods, and food from every corner of the world.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/umRVLNNVUYM"],
+        "photos": []
+      },
+      {
+        "visitDate": "",
+        "description": "TC site visit's biggest city. The CN Tower skyline, diverse neighborhoods, and food from every corner of the world.",
+        "youtubeUrls": ["https://youtu.be/dy7m46fGryU"],
         "photos": []
       }
     ]
