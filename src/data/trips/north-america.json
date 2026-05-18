@@ -21,5 +21,500 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "vancouver",
+    "name": "Vancouver",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [49.2827, -123.1207],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Mountains meeting the ocean. Rainforest trails, Stanley Park seawall, and a laid-back Pacific Northwest vibe.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "victoria",
+    "name": "Victoria",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [48.4329, -123.369],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Mountains meeting the ocean. Rainforest trails, Stanley Park seawall, and a laid-back Pacific Northwest vibe.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "edmonton",
+    "name": "Edmonton",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [53.5461, -113.4938],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Alberta's capital on the river valley. Festival city energy and the sprawling West Edmonton Mall.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "winnipeg",
+    "name": "Winnipeg",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [49.8951, -97.1384],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Heart of the prairies. The Forks, big skies, and a surprisingly rich arts and culture scene.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "toronto",
+    "name": "Toronto",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [43.6532, -79.3832],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Canada's biggest city. The CN Tower skyline, diverse neighborhoods, and food from every corner of the world.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "seattle",
+    "name": "Seattle",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [47.6062, -122.3321],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Coffee, rain, and evergreens. Pike Place Market, the Space Needle, and Puget Sound views.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "juneau",
+    "name": "Juneau",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [58.3019, -134.4197],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Alaska's capital, reachable only by sea or air. Glaciers, rainforest, and dramatic coastal wilderness.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "anchorage",
+    "name": "Anchorage",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [61.2181, -149.9003],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Alaska's largest city. Mountain backdrops, wildlife sightings, and a gateway to the last frontier.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "ketchikan",
+    "name": "Ketchikan",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [55.3422, -131.6461],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Alaska's southernmost city. Totem poles, salmon runs, and misty Inside Passage scenery.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "honolulu",
+    "name": "Honolulu",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [21.3069, -157.8583],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Hawaii's island capital. Waikiki Beach, volcanic ridgelines, and warm Pacific island culture.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "san-francisco",
+    "name": "San Francisco",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [37.7749, -122.4194],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Fog-draped hills and the Golden Gate. Cable cars, eclectic neighborhoods, and bay-side charm.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "los-angeles",
+    "name": "Los Angeles",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [34.0522, -118.2437],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Sunshine and sprawl. Beaches, Hollywood, and palm-lined boulevards under endless blue skies.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "san-diego",
+    "name": "San Diego",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [32.7157, -117.1611],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Perfect weather year-round. Laid-back beaches, Balboa Park, and a relaxed SoCal pace.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "tijuana",
+    "name": "Tijuana",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [32.5149, -117.0382],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Border city with bold energy. Street food, craft beer, and a fast-evolving arts and culinary scene.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "las-vegas",
+    "name": "Las Vegas",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [36.1699, -115.1398],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The desert that never sleeps. Neon lights, the Strip, and entertainment around every corner.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [33.4484, -112.074],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Sun-baked desert metropolis. Saguaro cacti, dramatic sunsets, and rugged surrounding mountains.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "salt-lake-city",
+    "name": "Salt Lake City",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [40.7608, -111.891],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Framed by the Wasatch Range. Mountain access, wide streets, and a gateway to world-class skiing.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "great-falls",
+    "name": "Great Falls",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [47.5053, -111.3008],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Montana on the Missouri River. Big sky country with waterfalls, history, and frontier character.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "san-antonio",
+    "name": "San Antonio",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [29.4241, -98.4936],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "History along the River Walk. The Alamo, Tex-Mex flavors, and warm Texan hospitality.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "houston",
+    "name": "Houston",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [29.7604, -95.3698],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Space City sprawl. World-class museums, a booming food scene, and Southern energy at scale.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "chicago",
+    "name": "Chicago",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [41.8781, -87.6298],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The Windy City on Lake Michigan. Iconic architecture, deep-dish pizza, and a lakefront skyline.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "orlando",
+    "name": "Orlando",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [28.5383, -81.3792],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Theme park capital of the world. Endless attractions, sunshine, and family-friendly magic.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "tampa-bay",
+    "name": "Tampa Bay",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [27.9506, -82.4572],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Gulf Coast sunshine. Waterfront districts, sandy beaches, and a relaxed Florida atmosphere.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "miami",
+    "name": "Miami",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [25.7617, -80.1918],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Tropical heat and Art Deco style. South Beach, Latin culture, and vibrant nightlife.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "atlanta",
+    "name": "Atlanta",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [33.7490, -84.3902],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Coning Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "montego-bay",
+    "name": "Montego Bay",
+    "country": "Jamaica",
+    "continent": "North America",
+    "coordinates": [18.4762, -77.8939],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Jamaica's resort coast. Turquoise water, reggae rhythms, and easygoing island warmth.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "cozumel",
+    "name": "Cozumel",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [20.4230, -86.9223],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Caribbean island off the Yucatán. World-class reef diving and clear, calm waters.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "tulum",
+    "name": "Tulum",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [20.2114, -87.4654],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Cliffside Mayan ruins above the sea. Bohemian beaches, cenotes, and jungle-meets-coast vibes.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "playa-del-carmen",
+    "name": "Playa del Carmen",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [20.6296, -87.0739],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Riviera Maya hotspot. Lively Quinta Avenida, white-sand beaches, and a buzzing nightlife scene.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "cancun",
+    "name": "Cancún",
+    "country": "Mexico",
+    "continent": "North America",
+    "coordinates": [21.1619, -86.8515],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The Yucatán's resort capital. Powder-soft beaches, turquoise Caribbean, and endless sunshine.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "belize-city",
+    "name": "Belize City",
+    "country": "Belize",
+    "continent": "North America",
+    "coordinates": [17.5046, -88.1962],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Gateway to the barrier reef. Caribbean coast, colonial history, and a launch point for island cayes.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "nassau",
+    "name": "Nassau",
+    "country": "Bahamas",
+    "continent": "North America",
+    "coordinates": [25.0443, -77.3504],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The Bahamian capital. Pastel colonial streets, crystal-clear shallows, and laid-back island life.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "roatan",
+    "name": "Roatán",
+    "country": "Honduras",
+    "continent": "North America",
+    "coordinates": [16.3000, -86.5300],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Honduran island in the Caribbean. Coral reefs, dive sites, and a relaxed Bay Islands pace.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
   }
 ]

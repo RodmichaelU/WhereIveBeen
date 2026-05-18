@@ -9,7 +9,7 @@
       {
         "visitDate": "March 2023",
         "description": "An incredible journey through Japan's vibrant capital — from the neon lights of Shinjuku to the tranquility of Meiji Shrine.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/I7lQmPquDMY","https://youtu.be/sncNgWhU1A4"],
         "photos": []
       }
     ]
@@ -54,7 +54,7 @@
       {
         "visitDate": "August 2025",
         "description": "Home",
-        "youtubeUrls": ["https://youtu.be/zmqyDjDQz1k"],
+        "youtubeUrls": ["https://youtu.be/eEiJXs5M53A","https://youtu.be/RJZXjijWhoE","https://youtu.be/zmqyDjDQz1k","https://youtu.be/diQ_SR1pQSI"],
         "photos": []
       }
     ]

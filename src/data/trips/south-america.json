@@ -1,0 +1,77 @@
+[
+  {
+    "id": "lima",
+    "name": "Lima",
+    "country": "Peru",
+    "continent": "South America",
+    "coordinates": [-12.0464, -77.0428],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "cusco",
+    "name": "Cusco",
+    "country": "Peru",
+    "continent": "South America",
+    "coordinates": [-13.5320, -71.9675],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "rio-de-janeiro",
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "continent": "South America",
+    "coordinates": [-22.9068, -43.1729],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "buenos-aires",
+    "name": "Buenos Aires",
+    "country": "Argentina",
+    "continent": "South America",
+    "coordinates": [-34.6037, -58.3816],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "iguazu",
+    "name": "Iguazú Falls",
+    "country": "Argentina",
+    "continent": "South America",
+    "coordinates": [-25.6953, -54.4367],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Coming Soon",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  }
+]

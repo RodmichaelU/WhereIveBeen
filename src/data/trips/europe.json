@@ -15,6 +15,21 @@
     ]
   },
   {
+    "id": "lille",
+    "name": "Lille",
+    "country": "France",
+    "continent": "Europe",
+    "coordinates": [50.6292, 3.0573],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Northern France with a Flemish accent. Grand squares, brick facades, and a lively student-city buzz.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
     "id": "zurich",
     "name": "Zurich",
     "country": "Switzerland",
@@ -23,7 +38,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Swiss precision by the lake. Alpine air, old-town charm, and crystal-clear water framed by mountains.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -38,7 +53,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Bavaria's lively capital. Beer gardens, grand squares, and the gateway to the Alps.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -53,7 +68,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Italy's fashion and design capital. The grand Duomo, stylish streets, and aperitivo culture.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -68,7 +83,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "The eternal city. Ancient ruins, the Colosseum, and history layered into every street.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -83,7 +98,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "The world's smallest country. St. Peter's Basilica, the Sistine Chapel, and Renaissance masterpieces.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -98,7 +113,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Birthplace of the Olympic Games. Ancient ruins set among olive groves and quiet countryside.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -113,7 +128,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "The cradle of Western civilization. The Acropolis crowning the city, ancient agoras, and lively tavernas.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -128,7 +143,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Cycladic island glamour. Whitewashed windmills, blue-domed lanes, and famous beach nightlife.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -143,7 +158,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Turkey's Aegean port city. Seaside promenades, ancient ruins nearby, and a warm Mediterranean pace.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -158,7 +173,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "The iconic caldera island. Cliffside white villages, blue domes, and unforgettable sunsets over the sea.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -173,7 +188,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Malta's fortified capital. Honey-colored stone, baroque architecture, and harbor views at every corner.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -188,7 +203,7 @@
     "visits": [
       {
         "visitDate": "July 2024",
-        "description": "The city of light — the Eiffel Tower at sunset, croissants at a corner café, and art at every turn.",
+        "description": "Catalan energy by the Mediterranean. Gaudí's architecture, lively boulevards, and beachside tapas.",
         "youtubeUrls": [],
         "photos": []
       }
@@ -203,7 +218,7 @@
     "visits": [
       {
         "visitDate": "February 2026",
-        "description": "School trip",
+        "description": "Canals, bikes, and gabled houses. World-class museums and a relaxed, walkable city charm.",
         "youtubeUrls": ["https://youtu.be/eA0o0IqeTGg?si=loO6VbVa21p1gMZa"],
         "photos": ["/images/Europe/amsterdam.jpg",
       "/images/Europe/vangoh.jpg"]
@@ -219,7 +234,7 @@
     "visits": [
       {
         "visitDate": "February 2026",
-        "description": "School trip",
+        "description": "A storybook Dutch town. Quiet canals, historic squares, and the home of iconic blue pottery.",
         "youtubeUrls": ["https://youtu.be/hQQ8vsU6osU?si=CH3_iQWYctrjk8EW"],
         "photos": []
       }
@@ -234,7 +249,7 @@
     "visits": [
       {
         "visitDate": "February 2026",
-        "description": "School trip",
+        "description": "Belgium's diamond and fashion hub. A grand old town, a stunning train station, and Flemish art.",
         "youtubeUrls": ["https://youtu.be/pjikRlgzq4w?si=9YHNr1F6HlRh_9LJ"],
         "photos": []
       }
@@ -249,8 +264,8 @@
     "visits": [
       {
         "visitDate": "May 2026",
-        "description": "Coming Soon",
-        "youtubeUrls": [""],
+        "description": "The world's northernmost capital. Colorful streets, geothermal warmth, and a base for chasing the wild.",
+        "youtubeUrls": [],
         "photos": []
       }
     ]
@@ -264,8 +279,8 @@
     "visits": [
       {
         "visitDate": "May 2026",
-        "description": "Coming Soon",
-        "youtubeUrls": [""],
+        "description": "Iceland's dramatic south coast. Black-sand beaches, sea stacks, and waterfalls under big northern skies.",
+        "youtubeUrls": [],
         "photos": []
       }
     ]
