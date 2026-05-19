@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { Video, Image } from 'lucide-react'
 import WorldMap from './components/WorldMap'
 import TripModal from './components/TripModal'
 import Stats from './components/Stats'
@@ -24,9 +25,21 @@ export default function App() {
               {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
             </p>
           </div>
-          <div className="text-slate-400 text-sm font-medium">
-            <span className="sm:hidden">Tap a pin to explore</span>
-            <span className="hidden sm:inline">Click a pin to explore</span>
+          <div className="flex items-center gap-2 bg-slate-700/60 border border-slate-600/50 rounded-xl px-3 py-1.5">
+            <span className="text-slate-400 text-xs font-medium whitespace-nowrap">
+              <span className="sm:hidden">Tap a pin</span>
+              <span className="hidden sm:inline">Click a pin</span>
+            </span>
+            <span className="text-slate-600 text-xs">·</span>
+            <span className="flex items-center gap-1 text-orange-400 text-xs font-semibold">
+              <Video size={11} strokeWidth={2.5} />
+              <span className="hidden sm:inline">Vlogs</span>
+            </span>
+            <span className="text-slate-600 text-xs">·</span>
+            <span className="flex items-center gap-1 text-orange-400 text-xs font-semibold">
+              <Image size={11} strokeWidth={2.5} />
+              <span className="hidden sm:inline">Photos</span>
+            </span>
           </div>
         </div>
       </header>
