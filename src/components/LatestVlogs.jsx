@@ -1,0 +1,78 @@
+import { Play } from 'lucide-react'
+
+const MONTHS = {
+  January: 0, February: 1, March: 2, April: 3,
+  May: 4, June: 5, July: 6, August: 7,
+  September: 8, October: 9, November: 10, December: 11,
+}
+
+function parseVisitDate(str) {
+  if (!str) return new Date(0)
+  const [month, year] = str.split(' ')
+  return new Date(parseInt(year), MONTHS[month] ?? 0)
+}
+
+function getYouTubeId(url) {
+  if (!url) return null
+  const patterns = [
+    /youtube\.com\/watch\?v=([^&\s]+)/,
+    /youtu\.be\/([^?\s]+)/,
+    /youtube\.com\/embed\/([^\s?]+)/,
+  ]
+  for (const p of patterns) {
+    const m = url.match(p)
+    if (m) return m[1]
+  }
+  return null
+}
+
+export default function LatestVlogs({ trips }) {
+  const vlogs = trips
+    .flatMap(trip =>
+      trip.visits.flatMap(visit =>
+        (visit.youtubeUrls || [])
+          .map(url => ({ url, id: getYouTubeId(url), trip, visit }))
+          .filter(v => v.id)
+      )
+    )
+    .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
+    .slice(0, 6)
+
+  if (vlogs.length === 0) return null
+
+  return (
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">
+        Latest Vlogs
+      </h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+        {vlogs.map(({ id, url, trip, visit }) => (
+          <a
+            key={`${id}`}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative rounded-xl overflow-hidden bg-slate-800 border border-slate-700 hover:border-orange-400/50 transition-colors"
+          >
+            <div className="aspect-video relative">
+              <img
+                src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+                alt={trip.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <Play size={18} fill="white" className="text-white ml-0.5" />
+                </div>
+              </div>
+            </div>
+            <div className="px-3 py-2.5">
+              <p className="text-white text-sm font-semibold leading-tight truncate">{trip.name}</p>
+              <p className="text-slate-400 text-xs mt-0.5">{trip.country} &middot; {visit.visitDate}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}

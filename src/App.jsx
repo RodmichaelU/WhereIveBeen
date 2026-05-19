@@ -3,6 +3,7 @@ import { Video, Image } from 'lucide-react'
 import WorldMap from './components/WorldMap'
 import TripModal from './components/TripModal'
 import Stats from './components/Stats'
+import LatestVlogs from './components/LatestVlogs'
 import trips from './data/trips/index.js'
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
       </div>
 
       <Stats trips={trips} />
+      <LatestVlogs trips={trips} />
 
       {selectedTrip && (
         <TripModal
