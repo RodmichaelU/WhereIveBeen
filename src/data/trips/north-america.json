@@ -16,9 +16,9 @@
     "coordinates": [40.7128, -74.006],
     "visits": [
       {
-        "visitDate": "October 2021",
-        "description": "Five boroughs, endless energy. Times Square, Central Park, and the best pizza outside of Naples.",
-        "youtubeUrls": [],
+        "visitDate": "December 2022",
+        "description": "RU Christmas 2022 in the Big Apple + 3 star Michelin Dinner.",
+        "youtubeUrls": ["https://youtu.be/OGGssgRptl8"],
         "photos": []
       }
     ]
@@ -31,9 +31,9 @@
     "coordinates": [49.2827, -123.1207],
     "visits": [
       {
-        "visitDate": "",
-        "description": "Mountains meeting the ocean. Rainforest trails, Stanley Park seawall, and a laid-back Pacific Northwest vibe.",
-        "youtubeUrls": [],
+        "visitDate": "August 2023",
+        "description": "IAAB Tour. RJ meets Drake.",
+        "youtubeUrls": ["https://youtu.be/aaWOcmwbSYg","https://youtu.be/9GVm96wtKqo"],
         "photos": []
       }
     ]
@@ -48,7 +48,7 @@
       {
         "visitDate": "",
         "description": "BC's genteel capital on Vancouver Island. Inner Harbour charm, historic gardens, and a touch of British heritage.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
       }
     ]
@@ -92,14 +92,32 @@
     "visits": [
       {
         "visitDate": "March 2026",
-        "description": "Canada's biggest city. The CN Tower skyline, diverse neighborhoods, and food from every corner of the world.",
+        "description": "RJ and Parents trip to Toronto. Nobu + Raptors vs Mavericks.",
         "youtubeUrls": ["https://youtu.be/umRVLNNVUYM"],
         "photos": []
       },
       {
-        "visitDate": "",
-        "description": "TC site visit's biggest city. The CN Tower skyline, diverse neighborhoods, and food from every corner of the world.",
+        "visitDate": "June 2025",
+        "description": "TC site visit to Toronto + Bowmanville. Blue Jays vs Phillies.",
         "youtubeUrls": ["https://youtu.be/dy7m46fGryU"],
+        "photos": []
+      },
+      {
+        "visitDate": "March 2024",
+        "description": "Curry takes on OVO night. Raptors vs Warriors.",
+        "youtubeUrls": ["https://youtu.be/DNxcYWSJtdI"],
+        "photos": []
+      },
+      {
+        "visitDate": "November 2023",
+        "description": "Reading week trip to Toronto with Mom and Ate. Raptors vs Bucks.",
+        "youtubeUrls": ["https://youtu.be/YtFBxbeg8rY"],
+        "photos": []
+      },
+      {
+        "visitDate": "December 2019",
+        "description": "RU Christmas 2019 in the 6. Raptors vs Celtics Christmas game.",
+        "youtubeUrls": [],
         "photos": []
       }
     ]
@@ -127,9 +145,9 @@
     "coordinates": [58.3019, -134.4197],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "May 2022",
         "description": "Alaska's capital, reachable only by sea or air. Glaciers, rainforest, and dramatic coastal wilderness.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
       }
     ]
@@ -142,9 +160,9 @@
     "coordinates": [61.2181, -149.9003],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "May 2022",
         "description": "Alaska's largest city. Mountain backdrops, wildlife sightings, and a gateway to the last frontier.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
       }
     ]
@@ -159,7 +177,7 @@
       {
         "visitDate": "",
         "description": "Alaska's southernmost city. Totem poles, salmon runs, and misty Inside Passage scenery.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
       }
     ]
@@ -187,9 +205,33 @@
     "coordinates": [37.7749, -122.4194],
     "visits": [
       {
-        "visitDate": "",
-        "description": "Fog-draped hills and the Golden Gate. Cable cars, eclectic neighborhoods, and bay-side charm.",
-        "youtubeUrls": [],
+        "visitDate": "January 2025",
+        "description": "RJ and Parents trip to San Fran to watch Curry vs LeBron + 2 Star Michelin Dinner",
+        "youtubeUrls": ["https://youtu.be/ZhA82ch3sQs"],
+        "photos": []
+      },
+      {
+        "visitDate": "December 2023",
+        "description": "RU Christmas 2023 in the Bay Area. Bang Bang 9er Gang vs Ravens.",
+        "youtubeUrls": ["https://youtu.be/FgT6jFKdz-E"],
+        "photos": []
+      },
+      {
+        "visitDate": "February 2023",
+        "description": "RJ and Grandma(s) trip to San Fran to watch the Klay & The Poole Party vs Rockets.",
+        "youtubeUrls": ["https://youtu.be/m-kECDMGLo8"],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2018",
+        "description": "RJ Road Trip visits San Francisco",
+        "youtubeUrls": ["https://youtu.be/TMrWuIO5F0c","https://youtu.be/bg1UEZ0rFLU","https://youtu.be/Z0PxP8Mvnms"],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2008",
+        "description": "RJ Road Trip visits San Francisco",
+        "youtubeUrls": [""],
         "photos": []
       }
     ]
@@ -247,14 +289,14 @@
     "coordinates": [36.1699, -115.1398],
     "visits": [
       {
-        "visitDate": "",
-        "description": "The desert that never sleeps. Neon lights, the Strip, and entertainment around every corner.",
+        "visitDate": "December 2024",
+        "description": "RU Christmas 2024 in Las Vegas... Again + 21st Birthday.",
         "youtubeUrls": ["https://youtu.be/bS3voBX2dEw"],
         "photos": []
       },
       {
-        "visitDate": "",
-        "description": "The desert that never sleeps. Neon lights, the Strip, and entertainment around every corner.",
+        "visitDate": "December 2021",
+        "description": "RU Christmas 2021 in Las Vegas.",
         "youtubeUrls": ["https://youtu.be/YrFn0XCzi-A"],
         "photos": []
       }
@@ -329,7 +371,7 @@
     "visits": [
       {
         "visitDate": "",
-        "description": "Space City sprawl. World-class museums, a booming food scene, and Southern energy at scale.",
+        "description": "RU Christmas 2025 starts in Space City.",
         "youtubeUrls": ["https://youtu.be/aWJJCRIgWLY","https://youtu.be/bTFbzbVgcXI","https://youtu.be/9m-0jYfyboA"],
         "photos": []
       }
