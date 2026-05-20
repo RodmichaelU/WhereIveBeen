@@ -244,9 +244,51 @@
     "coordinates": [34.0522, -118.2437],
     "visits": [
       {
-        "visitDate": "",
-        "description": "Sunshine and sprawl. Beaches, Hollywood, and palm-lined boulevards under endless blue skies.",
-        "youtubeUrls": [],
+        "visitDate": "February 2024",
+        "description": "RJ and Mom trip to LA to watch LeBron vs Wemby.",
+        "youtubeUrls": ["https://youtu.be/0pClMM7tT3s"],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2023",
+        "description": "RU summer vacation stops in Disneyland and Universal.",
+        "youtubeUrls": ["https://youtu.be/lyJIJdAgcuA"],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2018",
+        "description": "RU road trip stops in Disneyland.",
+        "youtubeUrls": [""],
+        "photos": []
+      },
+      {
+        "visitDate": "December 2016",
+        "description": "RU Christmas 2016 visits Disneyland for New Years",
+        "youtubeUrls": [""],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2013",
+        "description": "RU Summer vacation to LA for Disney.",
+        "youtubeUrls": [""],
+        "photos": []
+      },
+      {
+        "visitDate": "December 2011",
+        "description": "RU Christmas 2011 visits Disneyland",
+        "youtubeUrls": [""],
+        "photos": []
+      },
+      {
+        "visitDate": "December 2011",
+        "description": "RU Christmas 2011 visits Disneyland",
+        "youtubeUrls": [""],
+        "photos": []
+      },
+      {
+        "visitDate": "July 2008",
+        "description": "RU road trip stops in LA for Disneyland.",
+        "youtubeUrls": [""],
         "photos": []
       }
     ]
@@ -261,7 +303,7 @@
       {
         "visitDate": "",
         "description": "Perfect weather year-round. Laid-back beaches, Balboa Park, and a relaxed SoCal pace.",
-        "youtubeUrls": [],
+        "youtubeUrls": ["https://youtu.be/4gpYTWgVdDQ"],
         "photos": []
       }
     ]
@@ -391,9 +433,9 @@
     "coordinates": [41.8781, -87.6298],
     "visits": [
       {
-        "visitDate": "",
-        "description": "The Windy City on Lake Michigan. Iconic architecture, deep-dish pizza, and a lakefront skyline.",
-        "youtubeUrls": [],
+        "visitDate": "March 2017",
+        "description": "Bulls vs Warriors. RJ meets Curry",
+        "youtubeUrls": ["https://youtu.be/VsJMYr3P4z4"],
         "photos": []
       }
     ]
@@ -406,9 +448,15 @@
     "coordinates": [28.5383, -81.3792],
     "visits": [
       {
-        "visitDate": "",
-        "description": "Theme park capital of the world. Endless attractions, sunshine, and family-friendly magic.",
+        "visitDate": "August 2019",
+        "description": "RU trip to Florida to board the Carnival cruise.",
         "youtubeUrls": [],
+        "photos": []
+      },
+      {
+        "visitDate": "May 2015",
+        "description": "RU trip to Orlando to board the Disney Fantasy Cruise.",
+        "youtubeUrls": ["https://youtu.be/TxbNL4dtS4g"],
         "photos": []
       }
     ]
