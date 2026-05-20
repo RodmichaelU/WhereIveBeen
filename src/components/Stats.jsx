@@ -1,3 +1,5 @@
+import { NON_UN_TERRITORIES } from '../data/territories.js'
+
 const UN_MEMBER_STATES = 193
 
 const ALL_CONTINENTS = [
@@ -11,10 +13,12 @@ const ALL_CONTINENTS = [
 ]
 
 export default function Stats({ trips }) {
-  const countries = [...new Set(trips.map(t => t.country))]
+  const allCountries = [...new Set(trips.map(t => t.country))]
+  const unCountries = allCountries.filter(c => !NON_UN_TERRITORIES.has(c))
+  const territories = allCountries.filter(c => NON_UN_TERRITORIES.has(c))
   const visitedContinents = [...new Set(trips.map(t => t.continent))]
   const totalVisits = trips.reduce((sum, t) => sum + t.visits.length, 0)
-  const unPercent = (countries.length / UN_MEMBER_STATES) * 100
+  const unPercent = (unCountries.length / UN_MEMBER_STATES) * 100
   const unPercentDisplay = unPercent < 1 ? unPercent.toFixed(2) : unPercent.toFixed(1)
 
   return (
@@ -24,11 +28,16 @@ export default function Stats({ trips }) {
       </h2>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-5">
         <StatCard
-          value={countries.length}
+          value={unCountries.length}
           label="Countries"
-          sub={`out of 195`}
+          sub={`UN member states`}
+        />
+        <StatCard
+          value={territories.length}
+          label="Territories"
+          sub={`non-UN places`}
         />
         <StatCard
           value={visitedContinents.length}
@@ -43,7 +52,7 @@ export default function Stats({ trips }) {
         <StatCard
           value={`${unPercentDisplay}%`}
           label="UN Countries"
-          sub={`${countries.length} of ${UN_MEMBER_STATES}`}
+          sub={`${unCountries.length} of ${UN_MEMBER_STATES}`}
         >
           <div className="mt-3 w-full bg-slate-700 rounded-full h-1">
             <div

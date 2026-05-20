@@ -5,12 +5,13 @@ import TripModal from './components/TripModal'
 import Stats from './components/Stats'
 import LatestVlogs from './components/LatestVlogs'
 import trips from './data/trips/index.js'
+import { NON_UN_TERRITORIES } from './data/territories.js'
 
 export default function App() {
   const [selectedTrip, setSelectedTrip] = useState(null)
 
   const uniqueCountries = useMemo(
-    () => new Set(trips.map(t => t.country)).size,
+    () => trips.filter(t => !NON_UN_TERRITORIES.has(t.country)).reduce((s, t) => s.add(t.country), new Set()).size,
     []
   )
 
