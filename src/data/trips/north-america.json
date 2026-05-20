@@ -18,7 +18,7 @@
       {
         "visitDate": "December 2022",
         "description": "RU Christmas 2022 in the Big Apple + 3 star Michelin Dinner.",
-        "youtubeUrls": ["https://youtu.be/OGGssgRptl8"],
+        "youtubeUrls": ["https://youtu.be/dTLYOprCHko"],
         "photos": []
       }
     ]
@@ -231,7 +231,7 @@
       {
         "visitDate": "July 2008",
         "description": "RJ Road Trip visits San Francisco",
-        "youtubeUrls": [""],
+        "youtubeUrls": [],
         "photos": []
       }
     ]
@@ -481,7 +481,7 @@
     "coordinates": [20.4230, -86.9223],
     "visits": [
       {
-        "visitDate": "Decemeber 2025",
+        "visitDate": "December 2025",
         "description": "Caribbean island off the Yucatán. World-class reef diving and clear, calm waters.",
         "youtubeUrls": ["https://youtu.be/PYVvc4aV7-g"],
         "photos": []
@@ -589,6 +589,81 @@
         "visitDate": "December 2025",
         "description": "Honduran island in the Caribbean. Coral reefs, dive sites, and a relaxed Bay Islands pace.",
         "youtubeUrls": ["https://youtu.be/_M1ry0-8LHU"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "st-maarten",
+    "name": "St. Maarten",
+    "country": "Sint Maarten",
+    "continent": "North America",
+    "coordinates": [18.0167, -63.0894],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "Two nations on one island. Dutch-side cruise port at Philipsburg, jet-blast beaches, and breezy Caribbean charm.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "tortola",
+    "name": "Tortola",
+    "country": "British Virgin Islands",
+    "continent": "North America",
+    "coordinates": [18.4167, -64.6167],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The British Virgin Islands' main port at Road Town. Sailing capital of the Caribbean and gateway to turquoise coves.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "george-town",
+    "name": "George Town",
+    "country": "Cayman Islands",
+    "continent": "North America",
+    "coordinates": [19.2925, -81.3878],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The Cayman Islands' capital. Crystal-clear water, world-famous Seven Mile Beach, and easy island calm.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "grand-turk",
+    "name": "Grand Turk",
+    "country": "Turks and Caicos Islands",
+    "continent": "North America",
+    "coordinates": [21.4664, -71.1583],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "A tiny island with a quiet cruise port. White-sand beaches, a famous wall dive, and laid-back colonial streets.",
+        "youtubeUrls": [],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "st-thomas",
+    "name": "St. Thomas",
+    "country": "United States Virgin Islands",
+    "continent": "North America",
+    "coordinates": [18.3358, -64.9307],
+    "visits": [
+      {
+        "visitDate": "",
+        "description": "The USVI's bustling cruise port at Charlotte Amalie. Steep harbor views, duty-free shopping, and clear Caribbean coves.",
+        "youtubeUrls": [],
         "photos": []
       }
     ]
