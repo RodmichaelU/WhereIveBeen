@@ -87,30 +87,48 @@ export default function WorldMap({ trips, selectedTrip, onTripSelect }) {
         maxZoom={19}
       />
 
-      {trips.map(trip => (
-        <Marker
-          key={trip.id}
-          position={trip.coordinates}
-          icon={createTripIcon(selectedTrip?.id === trip.id, trip.visits.length)}
-          eventHandlers={{
-            click: () => onTripSelect(trip),
-          }}
-        >
-          <Tooltip direction="top" offset={[0, -10]} opacity={1}>
-            <div style={{ fontSize: '13px', fontWeight: '700', color: '#0f172a', margin: 0 }}>
-              {trip.name}
-              {trip.visits.length > 1 && (
-                <span style={{ fontSize: '10px', fontWeight: '600', color: '#f97316', marginLeft: '5px' }}>
-                  {trip.visits.length}x
-                </span>
+      {trips.map(trip => {
+        const totalVideos = trip.visits.reduce((s, v) => s + (v.youtubeUrls?.length || 0), 0)
+        const totalPhotos = trip.visits.reduce((s, v) => s + (v.photos?.length || 0), 0)
+        return (
+          <Marker
+            key={trip.id}
+            position={trip.coordinates}
+            icon={createTripIcon(selectedTrip?.id === trip.id, trip.visits.length)}
+            eventHandlers={{
+              click: () => onTripSelect(trip),
+            }}
+          >
+            <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+              <div style={{ fontSize: '13px', fontWeight: '700', color: '#0f172a', margin: 0 }}>
+                {trip.name}
+                {trip.visits.length > 1 && (
+                  <span style={{ fontSize: '10px', fontWeight: '600', color: '#f97316', marginLeft: '5px' }}>
+                    {trip.visits.length}x
+                  </span>
+                )}
+              </div>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
+                {trip.country} &middot; {trip.visits[trip.visits.length - 1].visitDate}
+              </div>
+              {(totalVideos > 0 || totalPhotos > 0) && (
+                <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                  {totalVideos > 0 && (
+                    <span style={{ fontSize: '10px', fontWeight: '700', color: '#f97316', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                      ▶ {totalVideos} {totalVideos === 1 ? 'vlog' : 'vlogs'}
+                    </span>
+                  )}
+                  {totalPhotos > 0 && (
+                    <span style={{ fontSize: '10px', fontWeight: '700', color: '#f97316', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                      ⬡ {totalPhotos} {totalPhotos === 1 ? 'photo' : 'photos'}
+                    </span>
+                  )}
+                </div>
               )}
-            </div>
-            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
-              {trip.country} &middot; {trip.visits[trip.visits.length - 1].visitDate}
-            </div>
-          </Tooltip>
-        </Marker>
-      ))}
+            </Tooltip>
+          </Marker>
+        )
+      })}
     </MapContainer>
   )
 }

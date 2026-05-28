@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Video, Image } from 'lucide-react'
+import { Video, Image, ChevronDown } from 'lucide-react'
 import WorldMap from './components/WorldMap'
 import TripModal from './components/TripModal'
 import Stats from './components/Stats'
@@ -52,6 +52,14 @@ export default function App() {
           selectedTrip={selectedTrip}
           onTripSelect={setSelectedTrip}
         />
+      </div>
+
+      <div className="flex flex-col items-center gap-1 py-4 bg-slate-900 border-b border-slate-800">
+        <p className="text-slate-400 text-xs font-medium tracking-wide uppercase">
+          Click any pin — vlogs &amp; photos inside
+        </p>
+        <p className="text-slate-500 text-xs">Scroll down for the latest travel vlogs</p>
+        <ChevronDown size={16} className="text-orange-400 mt-1 animate-bounce" />
       </div>
 
       <Stats trips={trips} />

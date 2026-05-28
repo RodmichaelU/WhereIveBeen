@@ -1,4 +1,4 @@
-import { Play } from 'lucide-react'
+import { Play, Video } from 'lucide-react'
 
 const MONTHS = {
   January: 0, February: 1, March: 2, April: 3,
@@ -42,9 +42,15 @@ export default function LatestVlogs({ trips }) {
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-      <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">
-        Latest Vlogs
-      </h2>
+      <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30">
+          <Video size={15} className="text-orange-400" strokeWidth={2.5} />
+        </div>
+        <div>
+          <h2 className="text-base font-bold text-white leading-none">Latest Travel Vlogs</h2>
+          <p className="text-slate-500 text-xs mt-0.5">Click a pin on the map to see all vlogs &amp; photos for that place</p>
+        </div>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         {vlogs.map(({ id, url, trip, visit }) => (
           <a
