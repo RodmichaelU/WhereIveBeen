@@ -47,6 +47,17 @@ body.modal-open .leaflet-bottom {
   border-top-color: #334155 !important;
 }
 
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;

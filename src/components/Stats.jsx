@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../hooks/useScrollReveal.js'
 import { NON_UN_TERRITORIES } from '../data/territories.js'
 
 const UN_MEMBER_STATES = 193
@@ -21,38 +22,35 @@ export default function Stats({ trips }) {
   const unPercent = (unCountries.length / UN_MEMBER_STATES) * 100
   const unPercentDisplay = unPercent < 1 ? unPercent.toFixed(2) : unPercent.toFixed(1)
 
+  const [headingRef, headingVisible] = useScrollReveal()
+  const [continentsRef, continentsVisible] = useScrollReveal()
+
+  const statCards = [
+    { value: unCountries.length, label: 'Countries', sub: 'UN member states' },
+    { value: territories.length, label: 'Territories', sub: 'non-UN places' },
+    { value: visitedContinents.length, label: 'Continents', sub: 'out of 7' },
+    { value: trips.length, label: 'Places', sub: totalVisits > trips.length ? `${totalVisits} total visits` : 'unique locations' },
+  ]
+
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-5">
+      <h2
+        ref={headingRef}
+        className={`text-xs font-semibold text-slate-400 uppercase tracking-widest mb-5 reveal${headingVisible ? ' visible' : ''}`}
+      >
         Travel Stats
       </h2>
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-5">
-        <StatCard
-          value={unCountries.length}
-          label="Countries"
-          sub={`UN member states`}
-        />
-        <StatCard
-          value={territories.length}
-          label="Territories"
-          sub={`non-UN places`}
-        />
-        <StatCard
-          value={visitedContinents.length}
-          label="Continents"
-          sub={`out of 7`}
-        />
-        <StatCard
-          value={trips.length}
-          label="Places"
-          sub={totalVisits > trips.length ? `${totalVisits} total visits` : 'unique locations'}
-        />
+        {statCards.map(({ value, label, sub }, i) => (
+          <StatCard key={label} value={value} label={label} sub={sub} delay={i * 80} />
+        ))}
         <StatCard
           value={`${unPercentDisplay}%`}
           label="UN Countries"
           sub={`${unCountries.length} of ${UN_MEMBER_STATES}`}
+          delay={statCards.length * 80}
         >
           <div className="mt-3 w-full bg-slate-700 rounded-full h-1">
             <div
@@ -64,7 +62,10 @@ export default function Stats({ trips }) {
       </div>
 
       {/* Continents breakdown */}
-      <div className="bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5">
+      <div
+        ref={continentsRef}
+        className={`bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5 reveal${continentsVisible ? ' visible' : ''}`}
+      >
         <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3.5">
           Continents
         </h3>
@@ -104,9 +105,14 @@ export default function Stats({ trips }) {
   )
 }
 
-function StatCard({ value, label, sub, children }) {
+function StatCard({ value, label, sub, delay = 0, children }) {
+  const [ref, visible] = useScrollReveal()
   return (
-    <div className="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5">
+    <div
+      ref={ref}
+      className={`bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 reveal${visible ? ' visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       <div className="text-3xl sm:text-4xl font-bold text-orange-400 leading-none tabular-nums">
         {value}
       </div>

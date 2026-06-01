@@ -1,4 +1,5 @@
 import { Play, Video } from 'lucide-react'
+import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
 const MONTHS = {
   January: 0, February: 1, March: 2, April: 3,
@@ -38,11 +39,16 @@ export default function LatestVlogs({ trips }) {
     .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
     .slice(0, 6)
 
+  const [headerRef, headerVisible] = useScrollReveal()
+
   if (vlogs.length === 0) return null
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-      <div className="flex items-center gap-3 mb-5">
+      <div
+        ref={headerRef}
+        className={`flex items-center gap-3 mb-5 reveal${headerVisible ? ' visible' : ''}`}
+      >
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30">
           <Video size={15} className="text-orange-400" strokeWidth={2.5} />
         </div>
@@ -52,33 +58,41 @@ export default function LatestVlogs({ trips }) {
         </div>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-        {vlogs.map(({ id, url, trip, visit }) => (
-          <a
-            key={`${id}`}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative rounded-xl overflow-hidden bg-slate-800 border border-slate-700 hover:border-orange-400/50 transition-colors"
-          >
-            <div className="aspect-video relative">
-              <img
-                src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
-                alt={trip.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play size={18} fill="white" className="text-white ml-0.5" />
-                </div>
-              </div>
-            </div>
-            <div className="px-3 py-2.5">
-              <p className="text-white text-sm font-semibold leading-tight truncate">{trip.name}</p>
-              <p className="text-slate-400 text-xs mt-0.5">{trip.country} &middot; {visit.visitDate}</p>
-            </div>
-          </a>
+        {vlogs.map(({ id, url, trip, visit }, i) => (
+          <VlogCard key={id} id={id} url={url} trip={trip} visit={visit} delay={i * 70} />
         ))}
       </div>
     </section>
+  )
+}
+
+function VlogCard({ id, url, trip, visit, delay }) {
+  const [ref, visible] = useScrollReveal()
+  return (
+    <a
+      ref={ref}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative rounded-xl overflow-hidden bg-slate-800 border border-slate-700 hover:border-orange-400/50 transition-colors reveal${visible ? ' visible' : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="aspect-video relative">
+        <img
+          src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+          alt={trip.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <Play size={18} fill="white" className="text-white ml-0.5" />
+          </div>
+        </div>
+      </div>
+      <div className="px-3 py-2.5">
+        <p className="text-white text-sm font-semibold leading-tight truncate">{trip.name}</p>
+        <p className="text-slate-400 text-xs mt-0.5">{trip.country} &middot; {visit.visitDate}</p>
+      </div>
+    </a>
   )
 }
