@@ -51,6 +51,7 @@ export default function Stats({ trips }) {
           label="UN Countries"
           sub={`${unCountries.length} of ${UN_MEMBER_STATES}`}
           delay={statCards.length * 80}
+          className="col-span-2 lg:col-span-1"
         >
           <div className="mt-3 w-full bg-slate-700 rounded-full h-1">
             <div
@@ -105,12 +106,12 @@ export default function Stats({ trips }) {
   )
 }
 
-function StatCard({ value, label, sub, delay = 0, children }) {
+function StatCard({ value, label, sub, delay = 0, children, className = '' }) {
   const [ref, visible] = useScrollReveal()
   return (
     <div
       ref={ref}
-      className={`bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 reveal${visible ? ' visible' : ''}`}
+      className={`bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 reveal${visible ? ' visible' : ''} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="text-3xl sm:text-4xl font-bold text-orange-400 leading-none tabular-nums">

@@ -46,7 +46,7 @@
     "coordinates": [48.4329, -123.369],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "May 2022",
         "description": "BC's genteel capital on Vancouver Island. Inner Harbour charm, historic gardens, and a touch of British heritage.",
         "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
@@ -61,7 +61,7 @@
     "coordinates": [53.5461, -113.4938],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "August 2025",
         "description": "Alberta's capital on the river valley. Festival city energy and the sprawling West Edmonton Mall.",
         "youtubeUrls": ["https://youtu.be/SahOZ9t-kg0"],
         "photos": []
@@ -175,7 +175,7 @@
     "coordinates": [55.3422, -131.6461],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "May 2022",
         "description": "Alaska's southernmost city. Totem poles, salmon runs, and misty Inside Passage scenery.",
         "youtubeUrls": ["https://youtu.be/fEUuVKHdWfs"],
         "photos": []
@@ -301,7 +301,7 @@
     "coordinates": [32.7157, -117.1611],
     "visits": [
       {
-        "visitDate": "",
+        "visitDate": "October 2019",
         "description": "Perfect weather year-round. Laid-back beaches, Balboa Park, and a relaxed SoCal pace.",
         "youtubeUrls": ["https://youtu.be/_Qi8wERlUeA"],
         "photos": []

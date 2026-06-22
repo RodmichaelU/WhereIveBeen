@@ -1,7 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Play, Video, List } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 import AllVlogsModal from './AllVlogsModal.jsx'
+
+// Tailwind's `sm` breakpoint — grid goes from 2 to 3 columns here
+const SM_BREAKPOINT = '(min-width: 640px)'
+
+function useIsSmUp() {
+  const [isSmUp, setIsSmUp] = useState(() => window.matchMedia(SM_BREAKPOINT).matches)
+
+  useEffect(() => {
+    const mql = window.matchMedia(SM_BREAKPOINT)
+    const onChange = (e) => setIsSmUp(e.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+
+  return isSmUp
+}
 
 const MONTHS = {
   January: 0, February: 1, March: 2, April: 3,
@@ -40,7 +56,8 @@ export default function LatestVlogs({ trips }) {
     )
     .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
 
-  const vlogs = allVlogs.slice(0, 9)
+  const isSmUp = useIsSmUp()
+  const vlogs = allVlogs.slice(0, isSmUp ? 9 : 8)
 
   const [headerRef, headerVisible] = useScrollReveal()
   const [showAll, setShowAll] = useState(false)
