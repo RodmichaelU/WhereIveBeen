@@ -1,5 +1,7 @@
-import { Play, Video } from 'lucide-react'
+import { useState } from 'react'
+import { Play, Video, List } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import AllVlogsModal from './AllVlogsModal.jsx'
 
 const MONTHS = {
   January: 0, February: 1, March: 2, April: 3,
@@ -28,7 +30,7 @@ function getYouTubeId(url) {
 }
 
 export default function LatestVlogs({ trips }) {
-  const vlogs = trips
+  const allVlogs = trips
     .flatMap(trip =>
       trip.visits.flatMap(visit =>
         (visit.youtubeUrls || [])
@@ -37,9 +39,11 @@ export default function LatestVlogs({ trips }) {
       )
     )
     .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
-    .slice(0, 6)
+
+  const vlogs = allVlogs.slice(0, 9)
 
   const [headerRef, headerVisible] = useScrollReveal()
+  const [showAll, setShowAll] = useState(false)
 
   if (vlogs.length === 0) return null
 
@@ -52,16 +56,27 @@ export default function LatestVlogs({ trips }) {
         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/30">
           <Video size={15} className="text-orange-400" strokeWidth={2.5} />
         </div>
-        <div>
+        <div className="flex-1">
           <h2 className="text-base font-bold text-white leading-none">Latest Travel Vlogs</h2>
           <p className="text-slate-500 text-xs mt-0.5">Click a pin on the map to see all vlogs &amp; photos for that place</p>
         </div>
+        {allVlogs.length > vlogs.length && (
+          <button
+            onClick={() => setShowAll(true)}
+            className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-orange-400/50 text-slate-300 hover:text-white text-xs font-semibold transition-colors"
+          >
+            <List size={13} />
+            <span>View all ({allVlogs.length})</span>
+          </button>
+        )}
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         {vlogs.map(({ id, url, trip, visit }, i) => (
           <VlogCard key={id} id={id} url={url} trip={trip} visit={visit} delay={i * 70} />
         ))}
       </div>
+
+      {showAll && <AllVlogsModal vlogs={allVlogs} onClose={() => setShowAll(false)} />}
     </section>
   )
 }
