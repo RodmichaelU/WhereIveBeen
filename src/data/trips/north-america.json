@@ -252,7 +252,7 @@
       {
         "visitDate": "July 2023",
         "description": "RU summer vacation stops in Disneyland and Universal.",
-        "youtubeUrls": ["https://youtu.be/lyJIJdAgcuA"],
+        "youtubeUrls": ["https://youtu.be/lyJIJdAgcuA","https://youtu.be/SXaM1HH46kI"],
         "photos": []
       },
       {
@@ -289,6 +289,21 @@
         "visitDate": "July 2008",
         "description": "RU road trip stops in LA for Disneyland.",
         "youtubeUrls": [""],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "palm-springs",
+    "name": "Palm Springs",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [33.8232, -116.5106],
+    "visits": [
+      {
+        "visitDate": "July 2023",
+        "description": "RU visits Palm Springs before going to Los Angeles.",
+        "youtubeUrls": ["https://youtu.be/d01D6qU9v48","https://youtu.be/aG56Mpaanso"],
         "photos": []
       }
     ]
