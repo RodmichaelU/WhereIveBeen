@@ -138,6 +138,21 @@
     ]
   },
   {
+    "id": "invermere",
+    "name": "Invermere",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [50.5069, -116.0317],
+    "visits": [
+      {
+        "visitDate": "July 2024",
+        "description": "",
+        "youtubeUrls": ["https://youtu.be/7g9vK8tKDrg"],
+        "photos": []
+      }
+    ]
+  },
+  {
     "id": "cranbrook",
     "name": "Cranbrook",
     "country": "Canada",
@@ -297,7 +312,7 @@
       {
         "visitDate": "July 2023",
         "description": "RU summer vacation stops in Disneyland and Universal.",
-        "youtubeUrls": ["https://youtu.be/lyJIJdAgcuA","https://youtu.be/SXaM1HH46kI"],
+        "youtubeUrls": ["https://youtu.be/lyJIJdAgcuA","https://youtu.be/SXaM1HH46kI","https://youtu.be/3vjXhD-iS48", "https://youtu.be/LQbCXWYsoL4", "https://youtu.be/4b8k2_Q9D18"],
         "photos": []
       },
       {
@@ -348,7 +363,7 @@
       {
         "visitDate": "July 2023",
         "description": "RU visits Palm Springs before going to Los Angeles.",
-        "youtubeUrls": ["https://youtu.be/d01D6qU9v48","https://youtu.be/aG56Mpaanso"],
+        "youtubeUrls": ["https://youtu.be/d01D6qU9v48","https://youtu.be/aG56Mpaanso","https://youtu.be/1suxufL7cbg"],
         "photos": []
       }
     ]
