@@ -138,6 +138,51 @@
     ]
   },
   {
+    "id": "cranbrook",
+    "name": "Cranbrook",
+    "country": "Canada",
+    "continent": "North America",
+    "coordinates": [49.5096, -115.774],
+    "visits": [
+      {
+        "visitDate": "July 2018",
+        "description": "RU Road Trip begins",
+        "youtubeUrls": ["https://youtu.be/kW0vNQuz6GU"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "spokane",
+    "name": "Spokane",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [47.6588, -117.426],
+    "visits": [
+      {
+        "visitDate": "July 2018",
+        "description": "RU Road trip stops in Spokane",
+        "youtubeUrls": ["https://youtu.be/EthdSeHgAX8"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "klamath-falls",
+    "name": "Klamath Falls",
+    "country": "United States",
+    "continent": "North America",
+    "coordinates": [42.2249, -121.7817],
+    "visits": [
+      {
+        "visitDate": "July 2018",
+        "description": "",
+        "youtubeUrls": ["https://youtu.be/LTd990VrX0g"],
+        "photos": []
+      }
+    ]
+  },
+  {
     "id": "juneau",
     "name": "Juneau",
     "country": "United States",
@@ -225,7 +270,7 @@
       {
         "visitDate": "July 2018",
         "description": "RJ Road Trip visits San Francisco",
-        "youtubeUrls": ["https://youtu.be/TMrWuIO5F0c","https://youtu.be/bg1UEZ0rFLU","https://youtu.be/Z0PxP8Mvnms"],
+        "youtubeUrls": ["https://youtu.be/TMrWuIO5F0c","https://youtu.be/bg1UEZ0rFLU","https://youtu.be/Z0PxP8Mvnms","https://youtu.be/LyjySdL8kS0","https://youtu.be/AtdTp6SQ3DY"],
         "photos": []
       },
       {
@@ -258,7 +303,7 @@
       {
         "visitDate": "July 2018",
         "description": "RU road trip stops in Disneyland.",
-        "youtubeUrls": [""],
+        "youtubeUrls": ["https://youtu.be/zDWTymKb6Y0"],
         "photos": []
       },
       {
