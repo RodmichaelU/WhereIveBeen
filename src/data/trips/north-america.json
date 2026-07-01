@@ -270,7 +270,7 @@
       {
         "visitDate": "July 2018",
         "description": "RJ Road Trip visits San Francisco",
-        "youtubeUrls": ["https://youtu.be/TMrWuIO5F0c","https://youtu.be/bg1UEZ0rFLU","https://youtu.be/Z0PxP8Mvnms","https://youtu.be/LyjySdL8kS0","https://youtu.be/AtdTp6SQ3DY"],
+        "youtubeUrls": ["https://youtu.be/TMrWuIO5F0c","https://youtu.be/bg1UEZ0rFLU","https://youtu.be/Z0PxP8Mvnms","https://youtu.be/AtdTp6SQ3DY","https://youtu.be/LyjySdL8kS0"],
         "photos": []
       },
       {
@@ -303,7 +303,7 @@
       {
         "visitDate": "July 2018",
         "description": "RU road trip stops in Disneyland.",
-        "youtubeUrls": ["https://youtu.be/zDWTymKb6Y0"],
+        "youtubeUrls": ["https://youtu.be/FbIUb0J0U5o","https://youtu.be/rCAr7PZPOC0","https://youtu.be/J8TE51MG_lY","https://youtu.be/zDWTymKb6Y0"],
         "photos": []
       },
       {
@@ -325,14 +325,14 @@
         "photos": []
       },
       {
-        "visitDate": "December 2011",
-        "description": "RU Christmas 2011 visits Disneyland",
+        "visitDate": "December 2008",
+        "description": "RU Road Trip visits Disneyland",
         "youtubeUrls": [""],
         "photos": []
       },
       {
-        "visitDate": "July 2008",
-        "description": "RU road trip stops in LA for Disneyland.",
+        "visitDate": "July 2006",
+        "description": "First RU trip to Disneyland",
         "youtubeUrls": [""],
         "photos": []
       }
@@ -365,6 +365,12 @@
         "description": "Perfect weather year-round. Laid-back beaches, Balboa Park, and a relaxed SoCal pace.",
         "youtubeUrls": ["https://youtu.be/_Qi8wERlUeA"],
         "photos": []
+      },
+      {
+        "visitDate": "July 2018",
+        "description": "RU Road Trip visits San Diego",
+        "youtubeUrls": ["https://youtu.be/L9UcDE06g1A","https://youtu.be/9-OK8SOmQBk","https://youtu.be/dnLBfkap0cQ"],
+        "photos": []
       }
     ]
   },
@@ -376,9 +382,9 @@
     "coordinates": [32.5149, -117.0382],
     "visits": [
       {
-        "visitDate": "",
-        "description": "Border city with bold energy. Street food, craft beer, and a fast-evolving arts and culinary scene.",
-        "youtubeUrls": [],
+        "visitDate": "July 2018",
+        "description": "RU Road Trip walks to Mexico",
+        "youtubeUrls": ["https://youtu.be/QLzlcPZN57w"],
         "photos": []
       }
     ]
