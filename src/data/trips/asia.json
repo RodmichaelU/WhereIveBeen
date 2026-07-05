@@ -73,5 +73,20 @@
         "photos": []
       }
     ]
+  },
+  {
+    "id": "paju",
+    "name": "Paju",
+    "country": "South Korea",
+    "continent": "Asia",
+    "coordinates": [37.7608, 126.7800],
+    "visits": [
+      {
+        "visitDate": "June 2026",
+        "description": "Visiting the DMZ and the North Korean Border.",
+        "youtubeUrls": ["https://youtu.be/4xo8PdWKHhU"],
+        "photos": []
+      }
+    ]
   }
 ]
