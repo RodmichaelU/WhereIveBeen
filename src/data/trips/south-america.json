@@ -8,7 +8,7 @@
     "visits": [
       {
         "visitDate": "July 2026",
-        "description": "Coming Soon",
+        "description": "First stop in the South America trip, Lima, Peru.",
         "youtubeUrls": ["https://youtu.be/klyjoK6AP3Y"],
         "photos": []
       }
@@ -60,11 +60,11 @@
     ]
   },
   {
-    "id": "iguazu",
-    "name": "Iguazú Falls",
-    "country": "Argentina",
+    "id": "colonia-del-sacramento",
+    "name": "Colonia del Sacramento",
+    "country": "Uruguay",
     "continent": "South America",
-    "coordinates": [-25.6953, -54.4367],
+    "coordinates": [-34.4626, -57.8442],
     "visits": [
       {
         "visitDate": "July 2026",
