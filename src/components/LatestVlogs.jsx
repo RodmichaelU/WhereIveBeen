@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Play, Video, List } from 'lucide-react'
+import { Play, Video, List, ChevronDown } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 import AllVlogsModal from './AllVlogsModal.jsx'
+
+// How many additional vlogs to reveal each time "Load more" is clicked
+const LOAD_MORE_COUNT = 6
 
 // Tailwind's `sm` breakpoint — grid goes from 2 to 3 columns here
 const SM_BREAKPOINT = '(min-width: 640px)'
@@ -57,7 +60,10 @@ export default function LatestVlogs({ trips }) {
     .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
 
   const isSmUp = useIsSmUp()
-  const vlogs = allVlogs.slice(0, isSmUp ? 9 : 8)
+  const initialCount = isSmUp ? 9 : 8
+  const [visibleCount, setVisibleCount] = useState(initialCount)
+  const vlogs = allVlogs.slice(0, visibleCount)
+  const hasMore = allVlogs.length > vlogs.length
 
   const [headerRef, headerVisible] = useScrollReveal()
   const [showAll, setShowAll] = useState(false)
@@ -89,9 +95,21 @@ export default function LatestVlogs({ trips }) {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
         {vlogs.map(({ id, url, trip, visit }, i) => (
-          <VlogCard key={id} id={id} url={url} trip={trip} visit={visit} delay={i * 70} />
+          <VlogCard key={id} id={id} url={url} trip={trip} visit={visit} delay={(i % LOAD_MORE_COUNT) * 70} />
         ))}
       </div>
+
+      {hasMore && (
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => setVisibleCount(c => c + LOAD_MORE_COUNT)}
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 hover:border-orange-400/50 text-slate-300 hover:text-white text-xs font-semibold transition-colors"
+          >
+            <ChevronDown size={13} />
+            <span>Load more</span>
+          </button>
+        </div>
+      )}
 
       {showAll && <AllVlogsModal vlogs={allVlogs} onClose={() => setShowAll(false)} />}
     </section>
