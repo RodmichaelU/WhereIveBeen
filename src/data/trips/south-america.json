@@ -15,11 +15,26 @@
     ]
   },
   {
-    "id": "cusco",
-    "name": "Cusco",
+    "id": "ollantaytambo",
+    "name": "Ollantaytambo",
     "country": "Peru",
     "continent": "South America",
-    "coordinates": [-13.5320, -71.9675],
+    "coordinates": [-13.2585, -72.2632],
+    "visits": [
+      {
+        "visitDate": "July 2026",
+        "description": "Hiking the Scared Valley and eating very interesting foods.",
+        "youtubeUrls": ["https://youtu.be/5IAr1kvHN-s"],
+        "photos": []
+      }
+    ]
+  },
+  {
+    "id": "machu-picchu",
+    "name": "Machu Picchu",
+    "country": "Peru",
+    "continent": "South America",
+    "coordinates": [-13.1631, -72.5450],
     "visits": [
       {
         "visitDate": "July 2026",
