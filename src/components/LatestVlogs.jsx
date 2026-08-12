@@ -34,6 +34,31 @@ function parseVisitDate(str) {
   return new Date(parseInt(year), MONTHS[month] ?? 0)
 }
 
+// Module-level cache so each video's title is only fetched once, ever
+const titleCache = new Map()
+
+function useVideoTitle(id) {
+  const [title, setTitle] = useState(() => titleCache.get(id) ?? null)
+
+  useEffect(() => {
+    if (!id || titleCache.has(id)) return
+    let cancelled = false
+
+    fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/watch?v=${id}`)}&format=json`)
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (cancelled || !data?.title) return
+        titleCache.set(id, data.title)
+        setTitle(data.title)
+      })
+      .catch(() => {})
+
+    return () => { cancelled = true }
+  }, [id])
+
+  return title
+}
+
 function getYouTubeId(url) {
   if (!url) return null
   const patterns = [
@@ -118,6 +143,7 @@ export default function LatestVlogs({ trips }) {
 
 function VlogCard({ id, url, trip, visit, delay }) {
   const [ref, visible] = useScrollReveal()
+  const title = useVideoTitle(id)
   return (
     <a
       ref={ref}
@@ -140,8 +166,13 @@ function VlogCard({ id, url, trip, visit, delay }) {
         </div>
       </div>
       <div className="px-3 py-2.5">
-        <p className="text-white text-sm font-semibold leading-tight truncate">{trip.name}</p>
-        <p className="text-slate-400 text-xs mt-0.5">{trip.country} &middot; {visit.visitDate}</p>
+        <p
+          className="text-white text-sm font-semibold leading-tight line-clamp-2"
+          title={title || trip.name}
+        >
+          {title || trip.name}
+        </p>
+        <p className="text-slate-400 text-xs mt-1">{trip.country} &middot; {visit.visitDate}</p>
       </div>
     </a>
   )
