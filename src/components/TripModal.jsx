@@ -1,24 +1,16 @@
 import { useEffect, useState } from 'react'
-import { X, MapPin, Calendar, Video, Image, ChevronLeft, ChevronRight } from 'lucide-react'
-
-function getYouTubeId(url) {
-  if (!url) return null
-  const patterns = [
-    /youtube\.com\/watch\?v=([^&\s]+)/,
-    /youtu\.be\/([^?\s]+)/,
-    /youtube\.com\/embed\/([^\s?]+)/,
-  ]
-  for (const p of patterns) {
-    const m = url.match(p)
-    if (m) return m[1]
-  }
-  return null
-}
+import { X, MapPin, Calendar, Video, Image, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react'
+import { getYouTubeId } from '../utils/youtube.js'
+import { useVideoEngagement } from '../hooks/useVideoEngagement.js'
+import LikeButton from './video-engagement/LikeButton.jsx'
+import CommentThread from './video-engagement/CommentThread.jsx'
 
 export default function TripModal({ trip, onClose }) {
   const visits = trip.visits                          // newest → oldest (index 0 = most recent)
   const [visitIndex, setVisitIndex] = useState(0)    // start at most recent
   const [lightboxSrc, setLightboxSrc] = useState(null)
+  const [expandedComments, setExpandedComments] = useState(() => new Set())
+  const [commentOverrides, setCommentOverrides] = useState({})
 
   const visit = visits[visitIndex]
   const isMultiVisit = visits.length > 1
@@ -29,6 +21,17 @@ export default function TripModal({ trip, onClose }) {
 
   const videoIds = (visit.youtubeUrls || []).map(getYouTubeId).filter(Boolean)
   const hasPhotos = visit.photos && visit.photos.length > 0
+
+  const { data: engagement } = useVideoEngagement(videoIds)
+
+  function toggleComments(id) {
+    setExpandedComments(prev => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
 
   useEffect(() => {
     const onKey = (e) => {
@@ -151,14 +154,35 @@ export default function TripModal({ trip, onClose }) {
                   <span>{videoIds.length > 1 ? `Videos (${videoIds.length})` : 'Video'}</span>
                 </div>
                 {videoIds.map((id, i) => (
-                  <div key={id} className="aspect-video rounded-xl overflow-hidden bg-slate-900">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${id}`}
-                      title={`${trip.name} video ${i + 1}`}
-                      className="w-full h-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
+                  <div key={id} className="space-y-2">
+                    <div className="aspect-video rounded-xl overflow-hidden bg-slate-900">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${id}`}
+                        title={`${trip.name} video ${i + 1}`}
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="flex items-center justify-between px-0.5">
+                      <LikeButton videoId={id} initialCount={engagement.get(id)?.likeCount ?? 0} size="sm" />
+                      <button
+                        onClick={() => toggleComments(id)}
+                        className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+                        aria-label="Toggle comments"
+                      >
+                        <MessageCircle size={13} />
+                        <span>{commentOverrides[id] ?? engagement.get(id)?.commentCount ?? 0} comments</span>
+                      </button>
+                    </div>
+                    {expandedComments.has(id) && (
+                      <CommentThread
+                        videoId={id}
+                        onCommentPosted={(newCount) =>
+                          setCommentOverrides(prev => ({ ...prev, [id]: newCount }))
+                        }
+                      />
+                    )}
                   </div>
                 ))}
               </div>

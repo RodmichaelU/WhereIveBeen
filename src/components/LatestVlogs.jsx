@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Play, Video, List, ChevronDown } from 'lucide-react'
+import { Play, Video, List, ChevronDown, MessageCircle } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useVideoEngagement } from '../hooks/useVideoEngagement.js'
+import { getYouTubeId } from '../utils/youtube.js'
 import AllVlogsModal from './AllVlogsModal.jsx'
+import VideoCommentsModal from './VideoCommentsModal.jsx'
+import LikeButton from './video-engagement/LikeButton.jsx'
 
 // How many additional vlogs to reveal each time "Load more" is clicked
 const LOAD_MORE_COUNT = 6
@@ -59,20 +63,6 @@ function useVideoTitle(id) {
   return title
 }
 
-function getYouTubeId(url) {
-  if (!url) return null
-  const patterns = [
-    /youtube\.com\/watch\?v=([^&\s]+)/,
-    /youtu\.be\/([^?\s]+)/,
-    /youtube\.com\/embed\/([^\s?]+)/,
-  ]
-  for (const p of patterns) {
-    const m = url.match(p)
-    if (m) return m[1]
-  }
-  return null
-}
-
 export default function LatestVlogs({ trips }) {
   const allVlogs = trips
     .flatMap(trip =>
@@ -92,6 +82,10 @@ export default function LatestVlogs({ trips }) {
 
   const [headerRef, headerVisible] = useScrollReveal()
   const [showAll, setShowAll] = useState(false)
+  const [openVlog, setOpenVlog] = useState(null)
+  const [commentOverrides, setCommentOverrides] = useState({})
+
+  const { data: engagement } = useVideoEngagement(vlogs.map(v => v.id))
 
   if (vlogs.length === 0) return null
 
@@ -119,9 +113,20 @@ export default function LatestVlogs({ trips }) {
         )}
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-        {vlogs.map(({ id, url, trip, visit }, i) => (
-          <VlogCard key={id} id={id} url={url} trip={trip} visit={visit} delay={(i % LOAD_MORE_COUNT) * 70} />
-        ))}
+        {vlogs.map((vlog, i) => {
+          const { id } = vlog
+          const counts = engagement.get(id)
+          return (
+            <VlogCard
+              key={id}
+              vlog={vlog}
+              delay={(i % LOAD_MORE_COUNT) * 70}
+              likeCount={counts?.likeCount ?? 0}
+              commentCount={commentOverrides[id] ?? counts?.commentCount ?? 0}
+              onOpenComments={() => setOpenVlog(vlog)}
+            />
+          )
+        })}
       </div>
 
       {hasMore && (
@@ -137,23 +142,32 @@ export default function LatestVlogs({ trips }) {
       )}
 
       {showAll && <AllVlogsModal vlogs={allVlogs} onClose={() => setShowAll(false)} />}
+
+      {openVlog && (
+        <VideoCommentsModal
+          vlog={openVlog}
+          initialCount={engagement.get(openVlog.id)?.likeCount ?? 0}
+          onClose={() => setOpenVlog(null)}
+          onCommentPosted={(newCount) =>
+            setCommentOverrides(prev => ({ ...prev, [openVlog.id]: newCount }))
+          }
+        />
+      )}
     </section>
   )
 }
 
-function VlogCard({ id, url, trip, visit, delay }) {
+function VlogCard({ vlog, delay, likeCount, commentCount, onOpenComments }) {
+  const { id, url, trip, visit } = vlog
   const [ref, visible] = useScrollReveal()
   const title = useVideoTitle(id)
   return (
-    <a
+    <div
       ref={ref}
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
       className={`group relative rounded-xl overflow-hidden bg-slate-800 border border-slate-700 hover:border-orange-400/50 transition-colors reveal${visible ? ' visible' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="aspect-video relative">
+      <a href={url} target="_blank" rel="noopener noreferrer" className="block aspect-video relative">
         <img
           src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
           alt={trip.name}
@@ -164,7 +178,7 @@ function VlogCard({ id, url, trip, visit, delay }) {
             <Play size={18} fill="white" className="text-white ml-0.5" />
           </div>
         </div>
-      </div>
+      </a>
       <div className="px-3 py-2.5">
         <p
           className="text-white text-sm font-semibold leading-tight line-clamp-2"
@@ -173,7 +187,18 @@ function VlogCard({ id, url, trip, visit, delay }) {
           {title || trip.name}
         </p>
         <p className="text-slate-400 text-xs mt-1">{trip.country} &middot; {visit.visitDate}</p>
+        <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-700/60">
+          <LikeButton videoId={id} initialCount={likeCount} size="sm" />
+          <button
+            onClick={onOpenComments}
+            className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+            aria-label="View comments"
+          >
+            <MessageCircle size={13} />
+            <span>{commentCount}</span>
+          </button>
+        </div>
       </div>
-    </a>
+    </div>
   )
 }
