@@ -1,15 +1,14 @@
-import { useState, useMemo } from 'react'
-import { Video, Image, ChevronDown } from 'lucide-react'
-import WorldMap from './components/WorldMap'
-import TripModal from './components/TripModal'
+import { useMemo } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
 import Stats from './components/Stats'
-import LatestVlogs from './components/LatestVlogs'
+import HomePage from './pages/HomePage'
+import TrendingPage from './pages/TrendingPage'
+import VlogsPage from './pages/VlogsPage'
 import trips from './data/trips/index.js'
 import { NON_UN_TERRITORIES } from './data/territories.js'
 
 export default function App() {
-  const [selectedTrip, setSelectedTrip] = useState(null)
-
   const uniqueCountries = useMemo(
     () => trips.filter(t => !NON_UN_TERRITORIES.has(t.country)).reduce((s, t) => s.add(t.country), new Set()).size,
     []
@@ -18,7 +17,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-white">
       <header className="sticky top-0 z-[500] bg-slate-800/95 backdrop-blur-sm border-b border-slate-700/60 px-4 sm:px-6 py-3 sm:py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Where has RJ been?
@@ -27,50 +26,16 @@ export default function App() {
               {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
             </p>
           </div>
-          <div className="flex items-center gap-2 bg-slate-700/60 border border-slate-600/50 rounded-xl px-3 py-1.5">
-            <span className="text-slate-400 text-xs font-medium whitespace-nowrap">
-              <span className="sm:hidden">Tap a pin</span>
-              <span className="hidden sm:inline">Click a pin</span>
-            </span>
-            <span className="text-slate-600 text-xs">·</span>
-            <span className="flex items-center gap-1 text-orange-400 text-xs font-semibold">
-              <Video size={11} strokeWidth={2.5} />
-              <span className="hidden sm:inline">Vlogs</span>
-            </span>
-            <span className="text-slate-600 text-xs">·</span>
-            <span className="flex items-center gap-1 text-orange-400 text-xs font-semibold">
-              <Image size={11} strokeWidth={2.5} />
-              <span className="hidden sm:inline">Photos</span>
-            </span>
-          </div>
+          <NavBar />
         </div>
       </header>
 
-      <div className="h-[60vh] md:h-[65vh]">
-        <WorldMap
-          trips={trips}
-          selectedTrip={selectedTrip}
-          onTripSelect={setSelectedTrip}
-        />
-      </div>
-
-      <div className="flex flex-col items-center gap-1 py-4 bg-slate-900 border-b border-slate-800">
-        <p className="text-slate-400 text-xs font-medium tracking-wide uppercase">
-          Click any pin — vlogs &amp; photos inside
-        </p>
-        <p className="text-slate-500 text-xs">Scroll down for the latest travel vlogs</p>
-        <ChevronDown size={16} className="text-orange-400 mt-1 animate-bounce" />
-      </div>
-
-      <Stats trips={trips} />
-      <LatestVlogs trips={trips} />
-
-      {selectedTrip && (
-        <TripModal
-          trip={selectedTrip}
-          onClose={() => setSelectedTrip(null)}
-        />
-      )}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/stats" element={<Stats trips={trips} />} />
+        <Route path="/trending" element={<TrendingPage />} />
+        <Route path="/vlogs" element={<VlogsPage />} />
+      </Routes>
     </div>
   )
 }
