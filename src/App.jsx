@@ -1,10 +1,11 @@
-import { useMemo } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Stats from './components/Stats'
 import HomePage from './pages/HomePage'
 import TrendingPage from './pages/TrendingPage'
 import VlogsPage from './pages/VlogsPage'
+import BeamsBackground from './components/BeamsBackground'
 import trips from './data/trips/index.js'
 import { NON_UN_TERRITORIES } from './data/territories.js'
 
@@ -14,17 +15,46 @@ export default function App() {
     []
   )
 
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+  const [showChrome, setShowChrome] = useState(!isHome)
+
+  // On Home, the header's title/count is redundant with the hero — keep it
+  // collapsed until scrolled past the hero. Every other page has no hero,
+  // so the header always shows it.
+  useEffect(() => {
+    if (!isHome) {
+      setShowChrome(true)
+      return
+    }
+    const onScroll = () => setShowChrome(window.scrollY > window.innerHeight * 0.6)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isHome])
+
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
-      <header className="sticky top-0 z-[500] bg-slate-800/95 backdrop-blur-sm border-b border-slate-700/60 px-4 sm:px-6 py-3 sm:py-4">
+    <div className="min-h-screen text-white">
+      <BeamsBackground className="fixed inset-0 -z-10 w-full h-full" intensity="strong" />
+      <header
+        className={`sticky top-0 z-[500] px-4 sm:px-6 py-3 sm:py-4 transition-colors duration-300 ${
+          showChrome ? 'bg-slate-900/70 backdrop-blur-md border-b border-slate-800/60' : 'bg-transparent border-b border-transparent'
+        }`}
+      >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              Where has RJ been?
-            </h1>
-            <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
-              {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
-            </p>
+          <div
+            className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+              showChrome ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+            }`}
+          >
+            <div className={`overflow-hidden transition-opacity duration-300 ${showChrome ? 'opacity-100' : 'opacity-0'}`}>
+              <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                Where has RJ been?
+              </h1>
+              <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
+                {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
+              </p>
+            </div>
           </div>
           <NavBar />
         </div>

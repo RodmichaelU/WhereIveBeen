@@ -58,6 +58,15 @@ body.modal-open .leaflet-bottom {
   transform: translateY(0);
 }
 
+/* Beams background pulse */
+@keyframes beams-pulse {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.15; }
+}
+.beams-pulse {
+  animation: beams-pulse 10s ease-in-out infinite;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
