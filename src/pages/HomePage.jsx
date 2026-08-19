@@ -78,12 +78,14 @@ export default function HomePage() {
         <HeroContent uniqueCountries={uniqueCountries} placesCount={trips.length} />
       </div>
 
-      <div className="h-[60vh] md:h-[65vh]">
-        <WorldMap
-          trips={trips}
-          selectedTrip={selectedTrip}
-          onTripSelect={setSelectedTrip}
-        />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-8">
+        <div className="h-[55vh] md:h-[60vh] rounded-2xl border border-slate-700/60 overflow-hidden shadow-2xl shadow-black/40">
+          <WorldMap
+            trips={trips}
+            selectedTrip={selectedTrip}
+            onTripSelect={setSelectedTrip}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center gap-1 py-4 border-b border-slate-800/60">
