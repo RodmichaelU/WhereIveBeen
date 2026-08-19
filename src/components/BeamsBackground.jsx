@@ -53,15 +53,20 @@ export default function BeamsBackground({ className = '', intensity = 'strong' }
     let beams = []
     let animId = 0
 
-    // iOS Safari's dynamic toolbar fires resize events (height changes only,
-    // by the toolbar's height) as it collapses/expands while scrolling. Fully
-    // re-seeding the beams on every one of those causes a visible flicker —
-    // only treat it as a real resize (worth re-seeding) when the width
-    // changes or the height changes by more than a toolbar-sized amount.
+    // iOS Safari's dynamic toolbar fires a stream of incremental resize
+    // events (height only, a few px at a time) as it collapses/expands
+    // while scrolling. Touching the canvas buffer on any of those — even
+    // without re-seeding the beams — clears and resets it, which reads as
+    // a constant flicker. Ignore anything that isn't a real resize entirely;
+    // the width/height baseline only updates when it actually is one, so
+    // a string of small toolbar-driven steps never accumulates into a
+    // false "real resize" either.
     function resize() {
       const newWidth = canvas.clientWidth
       const newHeight = canvas.clientHeight
-      const isRealResize = newWidth !== width || Math.abs(newHeight - height) > 150 || beams.length === 0
+      const isRealResize = beams.length === 0 || newWidth !== width || Math.abs(newHeight - height) > 150
+
+      if (!isRealResize) return
 
       width = newWidth
       height = newHeight
@@ -69,10 +74,8 @@ export default function BeamsBackground({ className = '', intensity = 'strong' }
       canvas.height = Math.round(height * dpr)
       ctx.scale(dpr, dpr)
 
-      if (isRealResize) {
-        const totalBeams = MINIMUM_BEAMS * 1.5
-        beams = Array.from({ length: totalBeams }, () => createBeam(width, height))
-      }
+      const totalBeams = MINIMUM_BEAMS * 1.5
+      beams = Array.from({ length: totalBeams }, () => createBeam(width, height))
     }
 
     function resetBeam(beam, index, totalBeams) {
