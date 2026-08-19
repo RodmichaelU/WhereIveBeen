@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal.js'
 import { useVideoEngagement } from '../hooks/useVideoEngagement.js'
 import { getAllVlogs } from '../utils/vlogs.js'
 import { NON_UN_TERRITORIES } from '../data/territories.js'
+import VisitsChoropleth from './VisitsChoropleth.jsx'
 
 const UN_MEMBER_STATES = 193
 
@@ -122,6 +123,7 @@ export default function Stats({ trips }) {
   })
 
   const [headingRef, headingVisible] = useScrollReveal()
+  const [choroplethRef, choroplethVisible] = useScrollReveal()
   const [continentsRef, continentsVisible] = useScrollReveal()
   const [extremesRef, extremesVisible] = useScrollReveal()
   const [patternsRef, patternsVisible] = useScrollReveal()
@@ -163,6 +165,19 @@ export default function Stats({ trips }) {
           </div>
         </StatCard>
       </div>
+
+      {/* Visits choropleth */}
+      {hasTrips && (
+        <div
+          ref={choroplethRef}
+          className={`bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5 mb-4 reveal${choroplethVisible ? ' visible' : ''}`}
+        >
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3.5">
+            Vlogs by Country
+          </h3>
+          <VisitsChoropleth trips={trips} />
+        </div>
+      )}
 
       {/* Continents breakdown */}
       <div
