@@ -76,6 +76,7 @@ export default function WorldMap({ trips, selectedTrip, onTripSelect }) {
       maxZoom={12}
       scrollWheelZoom={true}
       attributionControl={false}
+      zoomControl={false}
       style={{ height: '100%', width: '100%' }}
       maxBounds={[[-90, -180], [90, 180]]}
       maxBoundsViscosity={0.8}
