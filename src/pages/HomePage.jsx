@@ -3,6 +3,7 @@ import { ChevronDown, Heart, MessageCircle } from 'lucide-react'
 import WorldMap from '../components/WorldMap'
 import TripModal from '../components/TripModal'
 import LatestVlogs from '../components/LatestVlogs'
+import { useTypewriter } from '../hooks/useTypewriter.js'
 import trips from '../data/trips/index.js'
 import { NON_UN_TERRITORIES } from '../data/territories.js'
 
@@ -13,6 +14,14 @@ function HeroContent({ uniqueCountries, placesCount }) {
     const raf = requestAnimationFrame(() => setVisible(true))
     return () => cancelAnimationFrame(raf)
   }, [])
+
+  const sequences = useMemo(() => [
+    { text: `${uniqueCountries} ${uniqueCountries === 1 ? 'country' : 'countries'}`, deleteAfter: true },
+    { text: `${placesCount} places`, deleteAfter: true },
+    { text: "one map of everywhere I've been", deleteAfter: false, pauseAfter: 2500 },
+  ], [uniqueCountries, placesCount])
+
+  const typedText = useTypewriter(sequences)
 
   return (
     <div className="relative z-10 flex flex-col items-center justify-center gap-6 px-6 text-center">
@@ -29,11 +38,12 @@ function HeroContent({ uniqueCountries, placesCount }) {
       </h1>
 
       <p
-        className={`max-w-md text-base text-white/60 leading-relaxed transition-all duration-700 ease-out delay-150 ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`min-h-[1.75em] flex items-center justify-center text-base text-white/60 transition-opacity duration-700 ease-out delay-150 ${
+          visible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {placesCount} places &middot; one map of everywhere I&apos;ve been.
+        <span>{typedText}</span>
+        <span className="typewriter-cursor inline-block w-[2px] h-[1em] bg-white/60 ml-1" />
       </p>
 
       <div
