@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import Stats from './components/Stats'
 import HomePage from './pages/HomePage'
 import TrendingPage from './pages/TrendingPage'
@@ -71,6 +72,8 @@ export default function App() {
         <Route path="/trending" element={<TrendingPage />} />
         <Route path="/vlogs" element={<VlogsPage />} />
       </Routes>
+
+      <Footer />
     </div>
   )
 }
