@@ -39,41 +39,51 @@ export default function App() {
       {/* z-0 (not a negative z-index) — iOS Safari frequently fails to
           composite a `position: fixed` element with a negative z-index
           correctly during scroll, sorting it behind the whole scrolling
-          layer instead of just its DOM siblings. Being first in the DOM is
-          what actually keeps this behind everything else. */}
+          layer instead of just its DOM siblings. */}
       <BeamsBackground className="fixed inset-0 z-0 w-full h-full" intensity="strong" />
-      <header
-        className={`sticky top-0 z-[500] px-4 sm:px-6 py-3 sm:py-4 transition-colors duration-300 ${
-          showChrome ? 'bg-slate-900/70 backdrop-blur-md border-b border-slate-800/60' : 'bg-transparent border-b border-transparent'
-        }`}
-      >
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
-          <div
-            className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-              showChrome ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-            }`}
-          >
-            <div className={`overflow-hidden transition-opacity duration-300 ${showChrome ? 'opacity-100' : 'opacity-0'}`}>
-              <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                Where has RJ been?
-              </h1>
-              <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
-                {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
-              </p>
+
+      {/* relative z-10, not implicit DOM-order stacking — BeamsBackground's
+          filtered/blurred descendants (canvas filter, the pulse overlay)
+          each force their own composited layer, and this browser doesn't
+          reliably keep those behind later, non-fixed siblings just because
+          they're earlier in the DOM — content here was ending up rendered
+          underneath them (the footer, being furthest down the page, was
+          the most visible casualty). An explicit, higher z-index is
+          unambiguous across that compositing boundary; DOM order isn't. */}
+      <div className="relative z-10">
+        <header
+          className={`sticky top-0 z-[500] px-4 sm:px-6 py-3 sm:py-4 transition-colors duration-300 ${
+            showChrome ? 'bg-slate-900/70 backdrop-blur-md border-b border-slate-800/60' : 'bg-transparent border-b border-transparent'
+          }`}
+        >
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+            <div
+              className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                showChrome ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className={`overflow-hidden transition-opacity duration-300 ${showChrome ? 'opacity-100' : 'opacity-0'}`}>
+                <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Where has RJ been?
+                </h1>
+                <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
+                  {uniqueCountries} {uniqueCountries === 1 ? 'country' : 'countries'} &middot; {trips.length} {trips.length === 1 ? 'place' : 'places'} visited
+                </p>
+              </div>
             </div>
+            <NavBar />
           </div>
-          <NavBar />
-        </div>
-      </header>
+        </header>
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/stats" element={<Stats trips={trips} />} />
-        <Route path="/trending" element={<TrendingPage />} />
-        <Route path="/vlogs" element={<VlogsPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/stats" element={<Stats trips={trips} />} />
+          <Route path="/trending" element={<TrendingPage />} />
+          <Route path="/vlogs" element={<VlogsPage />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   )
 }

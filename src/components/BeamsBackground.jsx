@@ -144,10 +144,13 @@ export default function BeamsBackground({ className = '', intensity = 'strong' }
   return (
     <div className={`overflow-hidden bg-slate-950 ${className}`}>
       <canvas className="absolute inset-0 w-full h-full" ref={canvasRef} style={{ filter: 'blur(15px)' }} />
-      <div
-        className="absolute inset-0 bg-slate-950/5 beams-pulse"
-        style={{ backdropFilter: 'blur(50px)' }}
-      />
+      {/* Subtle pulsing veil over the canvas. No backdrop-filter here —
+          that property forces its own compositing layer, and combined
+          with the fixed positioning above, browsers (this bit Chromium)
+          can composite it above later, non-fixed page content — the
+          footer disappeared behind this exact div for that reason. A
+          plain opacity pulse gives the same visual effect. */}
+      <div className="absolute inset-0 bg-slate-950/5 beams-pulse pointer-events-none" />
     </div>
   )
 }
