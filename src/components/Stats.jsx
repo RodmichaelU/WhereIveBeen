@@ -1,4 +1,8 @@
+import { useState } from 'react'
+import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Heart, MessageCircle } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useVideoEngagement } from '../hooks/useVideoEngagement.js'
+import { getAllVlogs } from '../utils/vlogs.js'
 import { NON_UN_TERRITORIES } from '../data/territories.js'
 
 const UN_MEMBER_STATES = 193
@@ -13,6 +17,82 @@ const ALL_CONTINENTS = [
   'South America',
 ]
 
+function findExtreme(trips, axis, comparator) {
+  return trips.reduce((best, t) => (comparator(t.coordinates[axis], best.coordinates[axis]) ? t : best), trips[0])
+}
+
+function getFavoriteMonth(trips) {
+  const counts = {}
+  trips.forEach(t => t.visits.forEach(v => {
+    const month = v.visitDate?.split(' ')[0]
+    if (month) counts[month] = (counts[month] || 0) + 1
+  }))
+  const entries = Object.entries(counts)
+  if (entries.length === 0) return null
+  const [month, count] = entries.sort((a, b) => b[1] - a[1])[0]
+  return { month, count }
+}
+
+function getLongestStreak(trips) {
+  const years = [...new Set(
+    trips.flatMap(t => t.visits.map(v => parseInt(v.visitDate?.split(' ')[1])).filter(y => !isNaN(y)))
+  )].sort((a, b) => a - b)
+
+  if (years.length === 0) return null
+
+  let longest = 1
+  let bestStart = years[0]
+  let current = 1
+  let currentStart = years[0]
+
+  for (let i = 1; i < years.length; i++) {
+    if (years[i] === years[i - 1] + 1) {
+      current++
+    } else {
+      current = 1
+      currentStart = years[i]
+    }
+    if (current > longest) {
+      longest = current
+      bestStart = currentStart
+    }
+  }
+
+  return { years: longest, start: bestStart, end: bestStart + longest - 1 }
+}
+
+const MONTH_ORDER = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+]
+
+function getMonthlyVisits(trips) {
+  const counts = Object.fromEntries(MONTH_ORDER.map(m => [m, 0]))
+  trips.forEach(t => t.visits.forEach(v => {
+    const month = v.visitDate?.split(' ')[0]
+    if (month && month in counts) counts[month]++
+  }))
+  return MONTH_ORDER.map(m => ({ label: m.slice(0, 3), value: counts[m] }))
+}
+
+function getYearlyVisits(trips) {
+  const years = trips.flatMap(t =>
+    t.visits.map(v => parseInt(v.visitDate?.split(' ')[1])).filter(y => !isNaN(y))
+  )
+  if (years.length === 0) return []
+
+  const min = Math.min(...years)
+  const max = Math.max(...years)
+  const counts = {}
+  years.forEach(y => { counts[y] = (counts[y] || 0) + 1 })
+
+  const result = []
+  for (let y = min; y <= max; y++) {
+    result.push({ label: String(y), value: counts[y] || 0 })
+  }
+  return result
+}
+
 export default function Stats({ trips }) {
   const allCountries = [...new Set(trips.map(t => t.country))]
   const unCountries = allCountries.filter(c => !NON_UN_TERRITORIES.has(c))
@@ -22,8 +102,30 @@ export default function Stats({ trips }) {
   const unPercent = (unCountries.length / UN_MEMBER_STATES) * 100
   const unPercentDisplay = unPercent < 1 ? unPercent.toFixed(2) : unPercent.toFixed(1)
 
+  const hasTrips = trips.length > 0
+  const north = hasTrips ? findExtreme(trips, 0, (a, b) => a > b) : null
+  const south = hasTrips ? findExtreme(trips, 0, (a, b) => a < b) : null
+  const east = hasTrips ? findExtreme(trips, 1, (a, b) => a > b) : null
+  const west = hasTrips ? findExtreme(trips, 1, (a, b) => a < b) : null
+  const favoriteMonth = getFavoriteMonth(trips)
+  const streak = getLongestStreak(trips)
+  const monthlyVisits = getMonthlyVisits(trips)
+  const yearlyVisits = getYearlyVisits(trips)
+
+  const allVlogs = getAllVlogs(trips)
+  const { data: engagement } = useVideoEngagement(allVlogs.map(v => v.id))
+  let totalLikes = 0
+  let totalComments = 0
+  engagement.forEach(({ likeCount, commentCount }) => {
+    totalLikes += likeCount
+    totalComments += commentCount
+  })
+
   const [headingRef, headingVisible] = useScrollReveal()
   const [continentsRef, continentsVisible] = useScrollReveal()
+  const [extremesRef, extremesVisible] = useScrollReveal()
+  const [patternsRef, patternsVisible] = useScrollReveal()
+  const [communityRef, communityVisible] = useScrollReveal()
 
   const statCards = [
     { value: unCountries.length, label: 'Countries', sub: 'UN member states' },
@@ -102,7 +204,184 @@ export default function Stats({ trips }) {
           })}
         </div>
       </div>
+
+      {/* Geographic extremes */}
+      {hasTrips && (
+        <div
+          ref={extremesRef}
+          className={`bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5 mt-4 reveal${extremesVisible ? ' visible' : ''}`}
+        >
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3.5">
+            Geographic Extremes
+          </h3>
+          <div className="grid grid-cols-2 gap-2">
+            <MiniStat icon={ArrowUp} label="Northernmost" value={north.name} sub={north.country} />
+            <MiniStat icon={ArrowDown} label="Southernmost" value={south.name} sub={south.country} />
+            <MiniStat icon={ArrowRight} label="Easternmost" value={east.name} sub={east.country} />
+            <MiniStat icon={ArrowLeft} label="Westernmost" value={west.name} sub={west.country} />
+          </div>
+        </div>
+      )}
+
+      {/* Travel patterns */}
+      {(favoriteMonth || streak) && (
+        <div
+          ref={patternsRef}
+          className={`bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5 mt-4 reveal${patternsVisible ? ' visible' : ''}`}
+        >
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3.5">
+            Travel Patterns
+          </h3>
+          <div className="space-y-6">
+            {favoriteMonth && (
+              <BarChart
+                title="Visits by Month"
+                caption={`Peak: ${favoriteMonth.month} (${favoriteMonth.count} ${favoriteMonth.count === 1 ? 'visit' : 'visits'})`}
+                data={monthlyVisits}
+              />
+            )}
+            {streak && yearlyVisits.length > 0 && (
+              <BarChart
+                title="Trips by Year"
+                caption={`Longest streak: ${streak.years} ${streak.years === 1 ? 'year' : 'years'} (${streak.start}${streak.years > 1 ? `–${streak.end}` : ''})`}
+                data={yearlyVisits}
+              />
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Community engagement */}
+      <div
+        ref={communityRef}
+        className={`bg-slate-800/70 border border-slate-700/60 rounded-xl p-4 sm:p-5 mt-4 reveal${communityVisible ? ' visible' : ''}`}
+      >
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3.5">
+          Community
+        </h3>
+        <div className="grid grid-cols-2 gap-2">
+          <MiniStat icon={Heart} label="Total Likes" value={totalLikes} sub="across all vlogs" accent="orange" />
+          <MiniStat icon={MessageCircle} label="Total Comments" value={totalComments} sub="across all vlogs" accent="orange" />
+        </div>
+      </div>
     </section>
+  )
+}
+
+function MiniStat({ icon: Icon, label, value, sub, accent = 'amber' }) {
+  const iconBg = accent === 'orange' ? 'bg-orange-500/15 border-orange-500/30' : 'bg-amber-400/10 border-amber-400/25'
+  const iconColor = accent === 'orange' ? 'text-orange-400' : 'text-amber-400'
+
+  return (
+    <div className="flex items-center gap-3 bg-slate-700/40 border border-slate-600/40 rounded-lg px-3 py-2.5">
+      <div className={`flex items-center justify-center w-9 h-9 rounded-lg border flex-shrink-0 ${iconBg}`}>
+        <Icon size={15} className={iconColor} />
+      </div>
+      <div className="min-w-0">
+        <div className="text-sm font-bold text-white truncate">{value}</div>
+        <div className="text-xs text-slate-400 truncate">{label} &middot; {sub}</div>
+      </div>
+    </div>
+  )
+}
+
+// Rounded top corners, square baseline — per the app's bar mark spec.
+function roundedTopBarPath(x, y, width, height, radius) {
+  if (height <= 0) return ''
+  const r = Math.min(radius, width / 2, height)
+  return `M${x},${y + height}
+    L${x},${y + r}
+    Q${x},${y} ${x + r},${y}
+    L${x + width - r},${y}
+    Q${x + width},${y} ${x + width},${y + r}
+    L${x + width},${y + height}
+    Z`
+}
+
+function BarChart({ title, caption, data }) {
+  const [hoverIndex, setHoverIndex] = useState(null)
+  const [chartRef, chartVisible] = useScrollReveal()
+
+  const plotHeight = 40
+  const slotWidth = 10
+  const barGap = 1.4
+  const barWidth = slotWidth - barGap
+  const radius = 1.5
+  const max = Math.max(1, ...data.map(d => d.value))
+  const width = data.length * slotWidth
+
+  return (
+    <div ref={chartRef} className={`reveal${chartVisible ? ' visible' : ''}`}>
+      <div className="flex items-baseline justify-between gap-2 mb-2">
+        <span className="text-xs font-semibold text-slate-300">{title}</span>
+        <span className="text-xs text-amber-400/80">{caption}</span>
+      </div>
+      <svg
+        viewBox={`0 0 ${width} ${plotHeight + 8}`}
+        preserveAspectRatio="none"
+        className="w-full h-24 sm:h-28"
+        role="img"
+        aria-label={title}
+      >
+        {/* Baseline */}
+        <line
+          x1={0} y1={plotHeight} x2={width} y2={plotHeight}
+          className="stroke-slate-700"
+          strokeWidth={1}
+          vectorEffect="non-scaling-stroke"
+        />
+        {data.map((d, i) => {
+          const x = i * slotWidth + barGap / 2
+          const barHeight = (d.value / max) * (plotHeight - 4)
+          const isHovered = hoverIndex === i
+          return (
+            <g key={d.label}>
+              {isHovered && d.value > 0 && (
+                <text
+                  x={x + barWidth / 2}
+                  y={plotHeight - barHeight - 2}
+                  textAnchor="middle"
+                  className="fill-white"
+                  style={{ fontSize: 3.6, fontWeight: 700 }}
+                >
+                  {d.value}
+                </text>
+              )}
+              <path
+                d={roundedTopBarPath(x, plotHeight - barHeight, barWidth, barHeight, radius)}
+                className={isHovered ? 'fill-amber-300' : 'fill-amber-400/80'}
+                style={{ transition: 'fill 150ms ease' }}
+              />
+              <text
+                x={x + barWidth / 2}
+                y={plotHeight + 6}
+                textAnchor="middle"
+                className="fill-slate-500"
+                style={{ fontSize: 3 }}
+              >
+                {d.label}
+              </text>
+              {/* Larger, invisible hit target for hover/focus */}
+              <rect
+                x={i * slotWidth}
+                y={0}
+                width={slotWidth}
+                height={plotHeight}
+                fill="transparent"
+                tabIndex={0}
+                role="button"
+                aria-label={`${d.label}: ${d.value}`}
+                onMouseEnter={() => setHoverIndex(i)}
+                onMouseLeave={() => setHoverIndex(null)}
+                onFocus={() => setHoverIndex(i)}
+                onBlur={() => setHoverIndex(null)}
+                style={{ cursor: 'pointer', outline: 'none' }}
+              />
+            </g>
+          )
+        })}
+      </svg>
+    </div>
   )
 }
 
