@@ -53,15 +53,26 @@ export default function BeamsBackground({ className = '', intensity = 'strong' }
     let beams = []
     let animId = 0
 
+    // iOS Safari's dynamic toolbar fires resize events (height changes only,
+    // by the toolbar's height) as it collapses/expands while scrolling. Fully
+    // re-seeding the beams on every one of those causes a visible flicker —
+    // only treat it as a real resize (worth re-seeding) when the width
+    // changes or the height changes by more than a toolbar-sized amount.
     function resize() {
-      width = canvas.clientWidth
-      height = canvas.clientHeight
+      const newWidth = canvas.clientWidth
+      const newHeight = canvas.clientHeight
+      const isRealResize = newWidth !== width || Math.abs(newHeight - height) > 150 || beams.length === 0
+
+      width = newWidth
+      height = newHeight
       canvas.width = Math.round(width * dpr)
       canvas.height = Math.round(height * dpr)
       ctx.scale(dpr, dpr)
 
-      const totalBeams = MINIMUM_BEAMS * 1.5
-      beams = Array.from({ length: totalBeams }, () => createBeam(width, height))
+      if (isRealResize) {
+        const totalBeams = MINIMUM_BEAMS * 1.5
+        beams = Array.from({ length: totalBeams }, () => createBeam(width, height))
+      }
     }
 
     function resetBeam(beam, index, totalBeams) {
