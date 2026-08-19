@@ -35,7 +35,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-white">
-      <BeamsBackground className="fixed inset-0 -z-10 w-full h-full" intensity="strong" />
+      {/* z-0 (not a negative z-index) — iOS Safari frequently fails to
+          composite a `position: fixed` element with a negative z-index
+          correctly during scroll, sorting it behind the whole scrolling
+          layer instead of just its DOM siblings. Being first in the DOM is
+          what actually keeps this behind everything else. */}
+      <BeamsBackground className="fixed inset-0 z-0 w-full h-full" intensity="strong" />
       <header
         className={`sticky top-0 z-[500] px-4 sm:px-6 py-3 sm:py-4 transition-colors duration-300 ${
           showChrome ? 'bg-slate-900/70 backdrop-blur-md border-b border-slate-800/60' : 'bg-transparent border-b border-transparent'

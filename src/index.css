@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Match the BeamsBackground surface so iOS Safari's overscroll bounce and
+   dynamic toolbar never reveal the browser's default white behind the page. */
+html, body {
+  background-color: #020617;
+}
+
 /* Leaflet overrides */
 .leaflet-container {
   background: #b3d1e8;
