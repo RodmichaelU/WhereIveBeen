@@ -12,7 +12,11 @@ export function parseVisitDate(str) {
   return new Date(parseInt(year), MONTHS[month] ?? 0)
 }
 
-// Every video across every trip/visit, newest visit first.
+// Every video across every trip/visit, newest visit first. visitDate only
+// has month+year precision, so same-month visits tie on date — break ties
+// by original order (trip files list visits chronologically, so a later
+// position within the same month means a more recent stop) instead of
+// letting Array.sort's stability silently default to file order.
 export function getAllVlogs(trips) {
   return trips
     .flatMap(trip =>
@@ -22,5 +26,10 @@ export function getAllVlogs(trips) {
           .filter(v => v.id)
       )
     )
-    .sort((a, b) => parseVisitDate(b.visit.visitDate) - parseVisitDate(a.visit.visitDate))
+    .map((vlog, order) => ({ vlog, order }))
+    .sort((a, b) => {
+      const dateDiff = parseVisitDate(b.vlog.visit.visitDate) - parseVisitDate(a.vlog.visit.visitDate)
+      return dateDiff !== 0 ? dateDiff : b.order - a.order
+    })
+    .map(({ vlog }) => vlog)
 }
